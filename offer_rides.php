@@ -76,6 +76,109 @@
     </div>
 </nav>
 
+<div class="container padded-container">
+    <form class="form-login" method="post" action="#" id="offerrideform">
+<!--        {% if "lati" in field.label_tag or "long" in field.label_tag %}-->
+<!--        <div class="input-group">-->
+<!--            {{ field.as_hidden }}-->
+<!--        </div>-->
+<!--        {% endif %}-->
+        <div class="form-log-in-with-email">
+            <div class="form-white-background">
+                <div class="form-title-row">
+                    <h1>Offer Ride</h1>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Car Model</span>
+                        <input type="text" id="id_car_model" placeholder="Enter Car Model" name="car_model">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Seats</span>
+                        <input type="text" id="id_seats" placeholder="Enter No. of Seats" name="seats">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Seats Available</span>
+                        <input type="text" id="id_seats_available" placeholder="Enter No. of Seats Available" name="seats_available">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Cost</span>
+                        <input type="text" id="id_cost" placeholder="Enter Cost" name="cost">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Start Time</span>
+                        <input type="time" id="id_start_time" placeholder="Enter Start Time" name="start_time">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Date Of Ride</span>
+                        <input type="date" id="id_dateofride" name="dateofride">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Message</span>
+                        <textarea name="message" placeholder="Enter Message" id="id_message"></textarea>
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Source Location</span>
+                        <input type="text" name="source_location" maxlength="1000" required="" placeholder="Select Location Below" id="id_source_location">
+                    </label>
+                </div>
+                <button type="button" id="source_location_button" style="margin-top: -20px;" data-toggle="modal" data-target="#myModal">Source</button>
+                <div class="form-row">
+                    <label>
+                        <span>Destination Location</span>
+                        <input type="text" name="destination_location" maxlength="1000" required="" placeholder="Select Location Below" id="id_destination_location">
+                    </label>
+                </div>
+                <button type="button" id="destination_location_button" style="margin-top: -20px;" data-toggle="modal" data-target="#myModal">Destination</button>
+                <div class="form-row">
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Select Location</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="pac-card" id="pac-card">
+                    <div id="pac-container">
+                        <input id="location_input" type="text" placeholder="Enter a location">
+                    </div>
+                </div>
+                <div id="map"></div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <footer id="myFooter" class="footer">
     <div class="container">
         <div class="row">
