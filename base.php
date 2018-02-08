@@ -19,6 +19,7 @@
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Merriweather|Raleway" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
