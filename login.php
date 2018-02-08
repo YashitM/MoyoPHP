@@ -135,7 +135,7 @@
     });
 
     const messaging = firebase.messaging();
-    navigator.serviceWorker.register("{% static 'website/js/firebase-messaging-sw.js' %}").then(function (registration) {
+    navigator.serviceWorker.register("static/js/firebase-messaging-sw.js").then(function (registration) {
         messaging.useServiceWorker(registration);
         requestPermission();
         messaging.getToken()

@@ -78,11 +78,18 @@
 
 <div class="container padded-container">
     <form class="form-login" method="post" action="#" id="offerrideform">
-<!--        {% if "lati" in field.label_tag or "long" in field.label_tag %}-->
-<!--        <div class="input-group">-->
-<!--            {{ field.as_hidden }}-->
-<!--        </div>-->
-<!--        {% endif %}-->
+        <div class="input-group">
+            <input type="hidden" name="sou_lati" id="id_sou_lati" />
+        </div>
+        <div class="input-group">
+            <input type="hidden" name="sou_long" id="id_sou_long" />
+        </div>
+        <div class="input-group">
+            <input type="hidden" name="des_lati" id="id_des_lati" />
+        </div>
+        <div class="input-group">
+            <input type="hidden" name="des_long" id="id_des_long" />
+        </div>
         <div class="form-log-in-with-email">
             <div class="form-white-background">
                 <div class="form-title-row">
@@ -226,7 +233,7 @@
     });
 
     const messaging = firebase.messaging();
-    navigator.serviceWorker.register("{% static 'website/js/firebase-messaging-sw.js' %}").then(function (registration) {
+    navigator.serviceWorker.register("static/js/firebase-messaging-sw.js").then(function (registration) {
         messaging.useServiceWorker(registration);
         requestPermission();
         messaging.getToken()
