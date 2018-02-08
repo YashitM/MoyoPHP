@@ -1,3 +1,5 @@
+<?php require_once 'phpti-0.9/ti.php' ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,6 +78,9 @@
     </div>
 </nav>
 
+<?php startblock('content') ?>
+<?php endblock() ?>
+
 <footer id="myFooter" class="footer">
     <div class="container">
         <div class="row">
@@ -108,6 +113,7 @@
         <p> <span style="font-size: 12px">Powered by</span> <span style="font-weight: 700;">Moyo Solutions</span></p>
     </div>
 </footer>
+
 
 <script src="static/js/scrollreveal.js"></script>
 <script src="static/js/loader.js"></script>
