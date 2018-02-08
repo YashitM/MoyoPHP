@@ -78,18 +78,18 @@
 
 <div class="container padded-container">
     <form class="form-login" method="post" action="#">
-        {% csrf_token %}
         <div class="form-log-in-with-email">
             <div class="form-white-background">
                 <div class="form-title-row">
                     <h1>Update Profile</h1>
                 </div>
-                {% for field in form %}
-                {% if "Fcm" in field.label_tag %}
-                <div class="input-group">
-                    {{ field.as_hidden }}
-                </div>
-                {% elif "Gender" in field.label_tag %}
+<!--                {% for field in form %}-->
+<!--                {% if "Fcm" in field.label_tag %}-->
+<!--                <div class="input-group">-->
+<!--                    {{ field.as_hidden }}-->
+<!--                </div>-->
+<!--                {% endif %}-->
+<!--                {% endfor %}-->
                 <div class="form-row">
                     <label>
                         <span>Gender</span>
@@ -100,22 +100,18 @@
                         </select>
                     </label>
                 </div>
-                {% elif "Dob" in field.label_tag %}
                 <div class="form-row">
                     <label>
-                        <span>{{ field.label_tag }}</span>
-                        <input type="date" id="{{ field.id_for_label }}" name="{{ field.name }}" placeholder="Enter {{ field.label }}">
+                        <span>DOB</span>
+                        <input type="date" id="id_dob" name="dob" placeholder="Date of Birth">
                     </label>
                 </div>
-                {% else %}
                 <div class="form-row">
                     <label>
-                        <span>{{ field.label_tag }}</span>
+                        <span>Other Form Data</span>
                         <input type="text" id="{{ field.id_for_label }}" name="{{ field.name }}" placeholder="Enter {{ field.label }}">
                     </label>
                 </div>
-                {% endif %}
-                {% endfor %}
                 <div class="form-row">
                     <button type="submit" class="btn">Submit</button>
                 </div>
