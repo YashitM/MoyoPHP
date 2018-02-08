@@ -83,13 +83,9 @@
                 <div class="form-title-row">
                     <h1>Update Profile</h1>
                 </div>
-<!--                {% for field in form %}-->
-<!--                {% if "Fcm" in field.label_tag %}-->
-<!--                <div class="input-group">-->
-<!--                    {{ field.as_hidden }}-->
-<!--                </div>-->
-<!--                {% endif %}-->
-<!--                {% endfor %}-->
+                <div class="input-group">
+                    <input type="hidden" name="fcm_id" id="id_fcm_id" />
+                </div>
                 <div class="form-row">
                     <label>
                         <span>Gender</span>
@@ -108,8 +104,26 @@
                 </div>
                 <div class="form-row">
                     <label>
-                        <span>Other Form Data</span>
-                        <input type="text" id="{{ field.id_for_label }}" name="{{ field.name }}" placeholder="Enter {{ field.label }}">
+                        <span>Mobile</span>
+                        <input type="text" id="id_mobile" name="mobile" placeholder="Enter Mobile Number">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Company</span>
+                        <input type="text" id="id_company" name="company" placeholder="Enter Company">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Ref Number</span>
+                        <input type="text" id="id_ref_number" name="ref_number" placeholder="Enter Reference Number">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Aadhar</span>
+                        <input type="text" id="id_aadhar" name="aadhar" placeholder="Enter Aadhar Number">
                     </label>
                 </div>
                 <div class="form-row">
