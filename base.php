@@ -1,4 +1,4 @@
-<?php require_once 'phpti-0.9/ti.php' ?>
+<?php require_once 'libs/phpti-0.9/ti.php' ?>
 
 <!DOCTYPE html>
 <html>
