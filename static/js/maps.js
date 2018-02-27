@@ -1,6 +1,5 @@
 //Google Maps
-if (window.location.href.indexOf("take_rides") !== -1 || window.location.href.indexOf("offer_rides") !== -1 || window.location.href.indexOf("edit_ride") !== -1) {
-    
+if (window.location.href.indexOf("take_ride") !== -1 || window.location.href.indexOf("offer_rides") !== -1 || window.location.href.indexOf("edit_ride") !== -1) {
     defaultLatLong = {lat: 12.978718, lng: 77.589731};
 
     var map = new google.maps.Map(document.getElementById('map'), {
