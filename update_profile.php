@@ -7,8 +7,6 @@ if(!isset($_SESSION['logincust'])) {
     exit();
 }
 ?>
-
-
     <div class="container padded-container">
     <form class="form-login" method="post" action="#">
         <div class="form-log-in-with-email">
@@ -66,5 +64,25 @@ if(!isset($_SESSION['logincust'])) {
         </div>
     </form>
 </div>
+
+<?php
+    if(isset($_POST['gender']) && isset($_POST['fcm_id']) && isset($_POST['dob']) && isset($_POST['mobile']) && isset($_POST['company']) && isset($_POST['aadhar'])) {
+        $gender = $_POST['gender'];
+        $fcm_id = $_POST['fcm_id'];
+        $dob = $_POST['dob'];
+        $mobile = $_POST['mobile'];
+        $company = $_POST['company'];
+        $aadhar = $_POST['aadhar'];
+        $ref_number = "";
+        if(isset($_POST['ref_number'])) {}
+            $ref_number = $_POST['ref_number'];
+
+        $db = new DbHandler();
+        $db->createUser($_SESSION['oauth_uid'], $_SESSION['first_name']." ".$_SESSION['first_name'], $_SESSION['email'], $mobile, $gender, $dob, 0, $ref_number, $company);
+    }
+    else {
+        echo "<br><br>Please Complete All Fields.";
+    }
+?>
 
 <?php endblock() ?>
