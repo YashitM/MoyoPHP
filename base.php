@@ -1,4 +1,9 @@
-<?php require_once 'libs/phpti-0.9/ti.php' ?>
+<?php
+    require_once 'libs/phpti-0.9/ti.php';
+    session_start();
+
+    $_SESSION["logged_in"] = "false";
+?>
 
 <!DOCTYPE html>
 <html>
@@ -49,31 +54,38 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link" href="offer_rides.php">Offer Rides</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="take_ride.php">Take Rides</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="view_requests.php">Ride Requests</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="view_profile.php">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact_us.php">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <form method="post" id="logout_form" action="logout.php">
-                        <a class="nav-link" id="logout_submit_link" href="#">Logout</a>
-                    </form>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.php">Login</a>
-                </li>
+                <?php
+                    if($_SESSION["logged_in"] === "true") {
+                        ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="offer_rides.php">Offer Rides</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="take_ride.php">Take Rides</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="view_requests.php">Ride Requests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="view_profile.php">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact_us.php">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="post" id="logout_form" action="logout.php">
+                                <a class="nav-link" id="logout_submit_link" href="#">Logout</a>
+                            </form>
+                        </li>
+                        <?php
+                    } else {
+                        ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.php">Login</a>
+                        </li>
+                        <?php
+                    }
+                ?>
             </ul>
         </div>
     </div>
