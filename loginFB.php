@@ -14,7 +14,6 @@
 	use Facebook\HttpClients\FacebookHttpable;
 	
 	// Edit Following 2 Lines
-    FacebookSession::setDefaultApplication( '','' );
     $helper = new FacebookRedirectLoginHelper('http://localhost/MoyoPHP/loginFB.php');
 	
 	try {$session = $helper->getSessionFromRedirect();} catch( FacebookRequestException $ex ) {} catch( Exception $ex ) {}

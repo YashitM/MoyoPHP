@@ -3,8 +3,7 @@
 	include_once 'libs/SocialAuth/contrib/Google_Oauth2Service.php';
 	
 	// Edit Following 3 Lines
-    $clientId = ''; //Application client ID
-    $clientSecret = ''; //Application client secret
+
     $redirectURL = 'http://localhost/MoyoPHP/'; //Application Callback URL
 	
 	$gClient = new Google_Client();

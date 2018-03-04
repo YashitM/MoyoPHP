@@ -71,18 +71,7 @@
                             <a class="nav-link" href="contact_us.php">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <form method="post" id="logout_form">
-                                <a class="nav-link" onclick="document.getElementById('logout_form').submit();" id="logout_submit_link" href="#">Logout</a>
-                            </form>
-<!--                            <form method="post"><input class="nav-link" type="submit" value="Logout" name="logout_user"></form>-->
-<!--                        --><?php
-//                            if($_SERVER['REQUEST_METHOD'] == 'POST')
-//                            {
-//                                session_unset();
-//                                header("Location: index.php");
-//                                exit();
-//                            }
-//                        ?>
+                            <a class="nav-link" href="logout.php?logout=true">Logout</a>
                         </li>
                         <?php
                     } else {

@@ -4,116 +4,9 @@
     <list default="true" id="c69dca30-9e29-4fb3-9e05-574384eee6e7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/base.php" afterPath="$PROJECT_DIR$/base.php" />
-      <change beforePath="$PROJECT_DIR$/base_require_login.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/contact_us.php" afterPath="$PROJECT_DIR$/contact_us.php" />
-      <change beforePath="$PROJECT_DIR$/edit_ride.php" afterPath="$PROJECT_DIR$/edit_ride.php" />
-      <change beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change beforePath="$PROJECT_DIR$/libs/Social_Login/Home.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/Social_Login/images/loginfb.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/Social_Login/images/loging.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/Social_Login/index.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/Social_Login/loginFB.php" afterPath="$PROJECT_DIR$/loginFB.php" />
-      <change beforePath="$PROJECT_DIR$/libs/Social_Login/loginG.php" afterPath="$PROJECT_DIR$/loginG.php" />
-      <change beforePath="$PROJECT_DIR$/libs/autoload.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/Entities/AccessToken.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/Entities/SignedRequest.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookAuthorizationException.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookCanvasLoginHelper.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookClientException.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookJavaScriptLoginHelper.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookOtherException.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookPageTabHelper.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookPermissionException.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookRedirectLoginHelper.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookRequest.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookRequestException.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookResponse.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookSDKException.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookServerException.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookSession.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookSignedRequestFromInputHelper.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/FacebookThrottleException.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/GraphAlbum.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/GraphLocation.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/GraphObject.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/GraphPage.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/GraphSessionInfo.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/GraphUser.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/GraphUserPage.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/HttpClients/FacebookCurl.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/HttpClients/FacebookCurlHttpClient.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/HttpClients/FacebookGuzzleHttpClient.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/HttpClients/FacebookHttpable.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/HttpClients/FacebookStream.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/HttpClients/FacebookStreamHttpClient.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Facebook/HttpClients/certs/DigiCertHighAssuranceEVRootCA.pem" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/Google_Client.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/auth/Google_AssertionCredentials.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/auth/Google_Auth.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/auth/Google_AuthNone.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/auth/Google_LoginTicket.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/auth/Google_OAuth2.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/auth/Google_P12Signer.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/auth/Google_PemVerifier.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/auth/Google_Signer.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/auth/Google_Verifier.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/cache/Google_ApcCache.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/cache/Google_Cache.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/cache/Google_FileCache.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/cache/Google_MemcacheCache.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_AdexchangebuyerService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_AdsenseService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_AdsensehostService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_AnalyticsService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_BigqueryService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_BloggerService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_BooksService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_CalendarService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_ComputeService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_CustomsearchService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_DriveService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_FreebaseService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_FusiontablesService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_GanService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_LatitudeService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_LicensingService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_ModeratorService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_Oauth2Service.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_OrkutService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_PagespeedonlineService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_PlusMomentsService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_PlusService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_PredictionService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_ShoppingService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_SiteVerificationService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_StorageService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_TaskqueueService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_TasksService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_TranslateService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_UrlshortenerService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_WebfontsService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/contrib/Google_YoutubeService.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/external/URITemplateParser.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/io/Google_CacheParser.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/io/Google_CurlIO.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/io/Google_HttpRequest.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/io/Google_IO.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/io/Google_REST.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/io/cacerts.pem" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/service/Google_BatchRequest.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/service/Google_MediaFileUpload.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/service/Google_Model.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/service/Google_Service.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/service/Google_ServiceResource.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/libs/src/service/Google_Utils.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
+      <change beforePath="$PROJECT_DIR$/loginFB.php" afterPath="$PROJECT_DIR$/loginFB.php" />
+      <change beforePath="$PROJECT_DIR$/loginG.php" afterPath="$PROJECT_DIR$/loginG.php" />
       <change beforePath="$PROJECT_DIR$/logout.php" afterPath="$PROJECT_DIR$/logout.php" />
-      <change beforePath="$PROJECT_DIR$/offer_rides.php" afterPath="$PROJECT_DIR$/offer_rides.php" />
-      <change beforePath="$PROJECT_DIR$/take_ride.php" afterPath="$PROJECT_DIR$/take_ride.php" />
-      <change beforePath="$PROJECT_DIR$/update_profile.php" afterPath="$PROJECT_DIR$/update_profile.php" />
-      <change beforePath="$PROJECT_DIR$/view_profile.php" afterPath="$PROJECT_DIR$/view_profile.php" />
-      <change beforePath="$PROJECT_DIR$/view_requests.php" afterPath="$PROJECT_DIR$/view_requests.php" />
-      <change beforePath="$PROJECT_DIR$/view_rides.php" afterPath="$PROJECT_DIR$/view_rides.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -124,24 +17,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="loginFB.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loginFB.php">
+      <file leaf-file-name="base.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" column="83" lean-forward="false" selection-start-line="17" selection-start-column="83" selection-end-line="17" selection-end-column="83" />
-              <folding>
-                <element signature="e#74#103#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="580">
+              <caret line="59" column="29" lean-forward="true" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loginG.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="logout.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/logout.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loginG.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loginG.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+            <state relative-caret-position="100">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loginFB.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/loginFB.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+              <folding>
+                <element signature="e#74#103#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -176,19 +89,19 @@
         <option value="$PROJECT_DIR$/libs/Social_Login/index.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/base_require_login.php" />
-        <option value="$PROJECT_DIR$/base.php" />
         <option value="$PROJECT_DIR$/offer_rides.php" />
         <option value="$PROJECT_DIR$/view_profile.php" />
         <option value="$PROJECT_DIR$/contact_us.php" />
         <option value="$PROJECT_DIR$/edit_ride.php" />
-        <option value="$PROJECT_DIR$/logout.php" />
         <option value="$PROJECT_DIR$/take_ride.php" />
         <option value="$PROJECT_DIR$/update_profile.php" />
         <option value="$PROJECT_DIR$/view_requests.php" />
         <option value="$PROJECT_DIR$/view_rides.php" />
         <option value="$PROJECT_DIR$/libs/SocialAuth/autoload.php" />
-        <option value="$PROJECT_DIR$/loginFB.php" />
+        <option value="$PROJECT_DIR$/base.php" />
+        <option value="$PROJECT_DIR$/logout.php" />
         <option value="$PROJECT_DIR$/loginG.php" />
+        <option value="$PROJECT_DIR$/loginFB.php" />
       </list>
     </option>
   </component>
@@ -300,12 +213,12 @@
       <workItem from="1518047386390" duration="5828000" />
       <workItem from="1518300920017" duration="2397000" />
       <workItem from="1519743231186" duration="3215000" />
-      <workItem from="1520092177839" duration="20402000" />
+      <workItem from="1520092177839" duration="21579000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37160000" />
+    <option name="totallyTimeSpent" value="38337000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -565,26 +478,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libs/Social_Login/Home.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -637,14 +534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/contact_us.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -677,21 +566,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginFB.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="83" lean-forward="false" selection-start-line="17" selection-start-column="83" selection-end-line="17" selection-end-column="83" />
-          <folding>
-            <element signature="e#74#103#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="-337">
+          <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="59" column="29" lean-forward="true" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/loginG.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        <state relative-caret-position="100">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginFB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding>
+            <element signature="e#74#103#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
