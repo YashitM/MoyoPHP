@@ -1,8 +1,15 @@
-<?php include 'base_require_login.php' ?>
+<?php include 'base.php' ?>
 
 <?php startblock('content') ?>
+<?php
+if(!isset($_SESSION['logincust'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
 
-<div class="container padded-container">
+
+    <div class="container padded-container">
     <form class="form-login" method="post" action="#" id="offerrideform">
         <div class="input-group">
             <input type="hidden" name="sou_lati" id="id_sou_lati" />

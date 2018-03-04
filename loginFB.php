@@ -1,6 +1,6 @@
 <?php
-	session_start();
-	require_once 'autoload.php';
+    session_start();
+	require_once 'libs/SocialAuth/autoload.php';
 	use Facebook\FacebookSession;
 	use Facebook\FacebookRedirectLoginHelper;
 	use Facebook\FacebookRequest;
@@ -14,15 +14,19 @@
 	use Facebook\HttpClients\FacebookHttpable;
 	
 	// Edit Following 2 Lines
-	FacebookSession::setDefaultApplication( '','' );
-	$helper = new FacebookRedirectLoginHelper('');
+    FacebookSession::setDefaultApplication( '','' );
+    $helper = new FacebookRedirectLoginHelper('http://localhost/MoyoPHP/loginFB.php');
 	
 	try {$session = $helper->getSessionFromRedirect();} catch( FacebookRequestException $ex ) {} catch( Exception $ex ) {}
 	if ( isset( $session ) ) 
 	{
 		$request = new FacebookRequest( $session, 'GET', '/me?fields=id,first_name,last_name,name,email' );
-		$response = $request->execute();
-		$graphObject = $response->getGraphObject();
+        try {
+            $response = $request->execute();
+        } catch (FacebookRequestException $e) {
+        } catch (FacebookSDKException $e) {
+        }
+        $graphObject = $response->getGraphObject();
 		$fbid = $graphObject->getProperty('id');
 		$fbfirstname = $graphObject->getProperty('first_name');
 		$fblastname = $graphObject->getProperty('last_name');
@@ -39,10 +43,12 @@
 		$_SESSION['email'] = $femail;
 		$_SESSION['logincust']='yes';
 		header("Location: index.php");
+		exit();
 	} 
 	else 
 	{
 		$loginUrl = $helper->getLoginUrl();
 		header("Location: ".$loginUrl);
+		exit();
 	}
 ?>

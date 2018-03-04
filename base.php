@@ -1,8 +1,6 @@
 <?php
-    require_once 'libs/phpti-0.9/ti.php';
     session_start();
-
-    $_SESSION["logged_in"] = "false";
+    require_once 'libs/phpti-0.9/ti.php';
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +53,7 @@
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <?php
-                    if($_SESSION["logged_in"] === "true") {
+                    if(isset($_SESSION["logincust"])) {
                         ?>
                         <li class="nav-item">
                             <a class="nav-link" href="offer_rides.php">Offer Rides</a>
@@ -73,9 +71,18 @@
                             <a class="nav-link" href="contact_us.php">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <form method="post" id="logout_form" action="logout.php">
-                                <a class="nav-link" id="logout_submit_link" href="#">Logout</a>
+                            <form method="post" id="logout_form">
+                                <a class="nav-link" onclick="document.getElementById('logout_form').submit();" id="logout_submit_link" href="#">Logout</a>
                             </form>
+<!--                            <form method="post"><input class="nav-link" type="submit" value="Logout" name="logout_user"></form>-->
+<!--                        --><?php
+//                            if($_SERVER['REQUEST_METHOD'] == 'POST')
+//                            {
+//                                session_unset();
+//                                header("Location: index.php");
+//                                exit();
+//                            }
+//                        ?>
                         </li>
                         <?php
                     } else {

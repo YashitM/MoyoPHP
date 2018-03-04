@@ -1,6 +1,13 @@
-<?php include 'base_require_login.php' ?>
+<?php include 'base.php' ?>
 
 <?php startblock('content') ?>
+<?php
+if(!isset($_SESSION['logincust'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 
 
 LOLOOLOL
