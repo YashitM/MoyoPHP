@@ -73,20 +73,48 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         !(!isset($_POST['mobile']) || trim($_POST['mobile']) == '') &&
         !(!isset($_POST['company']) || trim($_POST['company']) == '') &&
         !(!isset($_POST['aadhar']) || trim($_POST['aadhar']) == '')) {
-        $gender = $_POST['gender'];
-        $fcm_id = $_POST['fcm_id'];
-        $dob = $_POST['dob'];
-        $mobile = $_POST['mobile'];
-        $company = $_POST['company'];
-        $aadhar = $_POST['aadhar'];
+
         $ref_number = "";
+
+        $fields = array(
+                'gender'=> $_POST['gender'],
+                'fcm_id'=> $_POST['fcm_id'],
+                'dob'=> $_POST['dob'],
+                'mobile'=> $_POST['mobile'],
+                'company'=> $_POST['company'],
+                'aadhar'=> $_POST['aadhar'],
+                'fb_id'=> $_SESSION['oauth_uid'],
+                'name'=> $_SESSION['first_name'] . " " . $_SESSION['first_name'],
+                'email'=> $_SESSION['email']
+        );
+
         if (!(isset($_POST['ref_number']) || trim($_POST['ref_number']) == '')) {
-            $ref_number = $_POST['ref_number'];
+            $fields['ref_number'] = $_POST['ref_number'];
         }
 
-        require_once("libs/API/DbHandler.php");
-        $db = new DbHandler();
-        $db->createUser($_SESSION['oauth_uid'], $_SESSION['first_name'] . " " . $_SESSION['first_name'], $_SESSION['email'], $mobile, $gender, $dob, 0, $ref_number, $company);
+        require_once("config.php");
+        $config = new ConfigVars();
+        $result = $config->send_post_request($fields, "register");
+        if($result === -1) {
+            echo "<script>
+                $.notify({
+                    message: 'Some Error Occurred',
+                    type: 'success'
+                });
+            </script>";
+        }
+        else {
+            echo "<script>
+                $.notify({
+                    message: '".$result['message']."',
+                    type: 'success'
+                });
+            </script>";
+        }
+
+//        require_once("libs/API/DbHandler.php");
+//        $db = new DbHandler();
+//        $db->createUser($_SESSION['oauth_uid'], $_SESSION['first_name'] . " " . $_SESSION['first_name'], $_SESSION['email'], $mobile, $gender, $dob, 0, $ref_number, $company);
     }
     else {
         echo "<script>
