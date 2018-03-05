@@ -9,7 +9,7 @@ if(!isset($_SESSION['logincust'])) {
 ?>
 
     <div class="container padded-container">
-    <form class="form-login" method="post" action="#" id="offerrideform">
+    <form class="form-login" method="post" action="view_rides.php" id="offerrideform">
         <div class="input-group">
             <input type="hidden" name="sou_lati" id="id_sou_lati" />
         </div>
@@ -27,6 +27,12 @@ if(!isset($_SESSION['logincust'])) {
             <div class="form-white-background">
                 <div class="form-title-row">
                     <h1>Take Ride</h1>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Date Of Ride</span>
+                        <input type="date" id="id_dateofride" name="dateofride" placeholder="Date of Ride">
+                    </label>
                 </div>
                 <div class="form-row">
                     <label>
@@ -78,6 +84,5 @@ if(!isset($_SESSION['logincust'])) {
         </div>
     </div>
 </div>
-
 
 <?php endblock() ?>

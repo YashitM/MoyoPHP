@@ -66,32 +66,41 @@ if(!isset($_SESSION['logincust'])) {
 </div>
 
 <?php
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if ( !(!isset($_POST['gender']) || trim($_POST['gender']) == '') && !(!isset($_POST['fcm_id']) || trim($_POST['fcm_id']) == '') && !(!isset($_POST['dob']) || trim($_POST['dob']) == '') && !(!isset($_POST['mobile']) || trim($_POST['mobile']) == '') && !(!isset($_POST['company']) || trim($_POST['company']) == '') && !(!isset($_POST['aadhar']) || trim($_POST['aadhar']) == '')) {
-            $gender = $_POST['gender'];
-            $fcm_id = $_POST['fcm_id'];
-            $dob = $_POST['dob'];
-            $mobile = $_POST['mobile'];
-            $company = $_POST['company'];
-            $aadhar = $_POST['aadhar'];
-            $ref_number = "";
-            if (!(isset($_POST['ref_number']) || trim($_POST['ref_number']) == '')) {
-                $ref_number = $_POST['ref_number'];
-            }
-
-            require_once("libs/API/DbHandler.php");
-            $db = new DbHandler();
-            $db->createUser($_SESSION['oauth_uid'], $_SESSION['first_name'] . " " . $_SESSION['first_name'], $_SESSION['email'], $mobile, $gender, $dob, 0, $ref_number, $company);
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ( !(!isset($_POST['gender']) || trim($_POST['gender']) == '') &&
+        !(!isset($_POST['fcm_id']) || trim($_POST['fcm_id']) == '') &&
+        !(!isset($_POST['dob']) || trim($_POST['dob']) == '') &&
+        !(!isset($_POST['mobile']) || trim($_POST['mobile']) == '') &&
+        !(!isset($_POST['company']) || trim($_POST['company']) == '') &&
+        !(!isset($_POST['aadhar']) || trim($_POST['aadhar']) == '')) {
+        $gender = $_POST['gender'];
+        $fcm_id = $_POST['fcm_id'];
+        $dob = $_POST['dob'];
+        $mobile = $_POST['mobile'];
+        $company = $_POST['company'];
+        $aadhar = $_POST['aadhar'];
+        $ref_number = "";
+        if (!(isset($_POST['ref_number']) || trim($_POST['ref_number']) == '')) {
+            $ref_number = $_POST['ref_number'];
         }
-        else {
-            echo "<script>
+
+        require_once("libs/API/DbHandler.php");
+        $db = new DbHandler();
+        $db->createUser($_SESSION['oauth_uid'], $_SESSION['first_name'] . " " . $_SESSION['first_name'], $_SESSION['email'], $mobile, $gender, $dob, 0, $ref_number, $company);
+    }
+    else {
+        echo "<script>
                 $.notify({
                     message: 'Please Complete All Fields',
                     type: 'success'
                 });
             </script>";
-        }
     }
+}
+else {
+    header("Location: take_ride.php");
+    exit();
+}
 ?>
 
 <?php endblock() ?>
