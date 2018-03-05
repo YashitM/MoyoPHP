@@ -8,7 +8,6 @@ if(!isset($_SESSION['logincust'])) {
 }
 ?>
 
-
     <div class="container padded-container">
     <form class="form-login" method="post" action="#" id="offerrideform">
         <div class="input-group">
@@ -79,5 +78,6 @@ if(!isset($_SESSION['logincust'])) {
         </div>
     </div>
 </div>
+
 
 <?php endblock() ?>

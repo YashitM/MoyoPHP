@@ -45,4 +45,30 @@ if(!isset($_SESSION['logincust'])) {
         </div>
     </form>
 </div>
+
+<?php
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!(!isset($_POST['type']) || trim($_POST['type']) == '') &&
+        !(!isset($_POST['message']) || trim($_POST['message']) == '') &&
+        !(!isset($_POST['image_url']) || trim($_POST['image_url']) == '')
+    ) {
+        $type = $_POST['type'];
+        $message = $_POST['message'];
+        $image_url = $_POST['image_url'];
+
+        require_once("libs/API/DbHandler.php");
+        $db = new DbHandler();
+        $db->createContactus($type, $message, $_SESSION['oauth_uid']);
+    }
+    else {
+        echo "<script>
+            $.notify({
+                message: 'Please Complete All Fields',
+                type: 'success'
+            });
+        </script>";
+    }
+}
+?>
+
 <?php endblock() ?>

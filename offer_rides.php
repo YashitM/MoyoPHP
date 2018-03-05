@@ -118,4 +118,60 @@
         </div>
     </div>
 </div>
+
+<?php
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ( !(!isset($_POST['sou_lati']) || trim($_POST['sou_lati']) == '') &&
+        !(!isset($_POST['sou_long']) || trim($_POST['sou_long']) == '') &&
+        !(!isset($_POST['des_lati']) || trim($_POST['des_lati']) == '') &&
+        !(!isset($_POST['des_long']) || trim($_POST['des_long']) == '')
+    ) {
+        if (!(!isset($_POST['car_model']) || trim($_POST['car_model']) == '') &&
+            !(!isset($_POST['seats']) || trim($_POST['seats']) == '') &&
+            !(!isset($_POST['seats_available']) || trim($_POST['seats_available']) == '') &&
+            !(!isset($_POST['cost']) || trim($_POST['cost']) == '') &&
+            !(!isset($_POST['start_time']) || trim($_POST['start_time']) == '') &&
+            !(!isset($_POST['dateofride']) || trim($_POST['dateofride']) == '') &&
+            !(!isset($_POST['message']) || trim($_POST['message']) == '') &&
+            !(!isset($_POST['source_location']) || trim($_POST['source_location']) == '') &&
+            !(!isset($_POST['destination_location']) || trim($_POST['destination_location']) == '')
+        ) {
+            $sou_lati = $_POST['sou_lati'];
+            $sou_long = $_POST['sou_long'];
+            $des_lati = $_POST['des_lati'];
+            $des_long = $_POST['des_long'];
+            $car_model = $_POST['car_model'];
+            $seats = $_POST['seats'];
+            $seats_available = $_POST['seats_available'];
+            $cost = $_POST['cost'];
+            $start_time = $_POST['start_time'];
+            $dateofride = $_POST['dateofride'];
+            $message = $_POST['message'];
+            $source_location = $_POST['source_location'];
+            $destination_location = $_POST['destination_location'];
+
+            require_once("libs/API/DbHandler.php");
+            $db = new DbHandler();
+            $db->createRide($_SESSION['oauth_uid'], $car_model, $seats, $cost, $sou_lati, $sou_long, $des_lati, $des_long, $start_time, $source_location, $destination_location, $dateofride, $message);
+        }
+        else {
+            echo "<script>
+                $.notify({
+                    message: 'Please Complete All Fields',
+                    type: 'success'
+                });
+            </script>";
+        }
+    }
+    else {
+        echo "<script>
+                $.notify({
+                    message: 'Some error occurred. Please try again later.',
+                    type: 'success'
+                });
+            </script>";
+    }
+}
+?>
+
 <?php endblock() ?>
