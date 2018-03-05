@@ -32,11 +32,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     else {
         echo "<script>
                 $.notify({
-                    message: 'Please Complete All Fields',
+                    message: 'Some Error Occurred.',
                     type: 'success'
                 });
             </script>";
+        header("Location: take_ride.php");
+        exit();
     }
+}
+else {
+    header("Location: take_ride.php");
+    exit();
 }
 ?>
 

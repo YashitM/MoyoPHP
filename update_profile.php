@@ -97,10 +97,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             </script>";
     }
 }
-else {
-    header("Location: take_ride.php");
-    exit();
-}
 ?>
 
 <?php endblock() ?>
