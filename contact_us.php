@@ -17,7 +17,7 @@ if(!isset($_SESSION['logincust'])) {
                     </div>
                     <div class="form-row">
                         <label>
-                            <span>Reason</span>
+                            <span>Reason*</span>
                             <select name="type" id="id_type">
                                 <option selected>Select Reason</option>
                                 <option value="Complaint">Complaint</option>
@@ -28,7 +28,7 @@ if(!isset($_SESSION['logincust'])) {
                     </div>
                     <div class="form-row">
                         <label>
-                            <span>Message</span>
+                            <span>Message*</span>
                             <textarea name="message" placeholder="Enter Message" id="id_message"></textarea>
                         </label>
                     </div>
@@ -49,16 +49,53 @@ if(!isset($_SESSION['logincust'])) {
 <?php
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!(!isset($_POST['type']) || trim($_POST['type']) == '') &&
-        !(!isset($_POST['message']) || trim($_POST['message']) == '') &&
-        !(!isset($_POST['image_url']) || trim($_POST['image_url']) == '')
+        !(!isset($_POST['message']) || trim($_POST['message']) == '')
     ) {
-        $type = $_POST['type'];
-        $message = $_POST['message'];
-        $image_url = $_POST['image_url'];
+        $fields = array(
+            'type' => $_POST['type'],
+            'message' => $_POST['message']
+        );
 
-        require_once("libs/API/DbHandler.php");
-        $db = new DbHandler();
-        $db->createContactus($type, $message, $_SESSION['oauth_uid']);
+        $have_api_key = 0;
+
+        require_once("config.php");
+        $config = new ConfigVars();
+
+        if (isset($_SESSION['ApiKey'])) {
+            $fields['Authorization'] = $_SESSION['ApiKey'];
+            $have_api_key = 1;
+        }
+        else {
+            $inner_fields = array (
+                'fb_id' => $_SESSION['oauth_uid']
+            );
+            $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
+            $inner_obj = json_decode($inner_result);
+            if(!$inner_obj->{'error'}) {
+                $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
+                $fields['Authorization'] = $_SESSION['ApiKey'];
+                $have_api_key = 1;
+            }
+        }
+
+        if($have_api_key === 1) {
+            $result = $config->send_post_request($fields, "contactus");
+            $obj = json_decode($result);
+            echo "<script>
+        	$.notify({
+            	message: '" . $obj->{'message'} . "',
+                type: 'success'
+                });
+            </script>";
+        }
+        else {
+            echo "<script>
+                $.notify({
+                    message: 'Some error occurred. Please try again later.',
+                    type: 'success'
+                });
+                </script>";
+        }
     }
     else {
         echo "<script>

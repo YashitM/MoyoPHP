@@ -8,3 +8,4 @@
     1. Date Picker has to be changed, its not convinient, lets use latest date pickers.
     2. Some basic validations shud be taken care, Submit button shud not work, if date is blank
     3. After entering all details, if there is no RIDES, then msg shud be shown
+7) Add file upload to contactus
