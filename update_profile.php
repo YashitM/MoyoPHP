@@ -67,7 +67,7 @@ if(!isset($_SESSION['logincust'])) {
 
 <?php
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if ( !(!isset($_POST['gender']) || trim($_POST['gender']) == '') &&
+    if (!(!isset($_POST['gender']) || trim($_POST['gender']) == '') &&
         !(!isset($_POST['dob']) || trim($_POST['dob']) == '') &&
         !(!isset($_POST['mobile']) || trim($_POST['mobile']) == '') &&
         !(!isset($_POST['company']) || trim($_POST['company']) == '') &&
@@ -76,14 +76,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $ref_number = "";
 
         $fields = array(
-            'gender'=> $_POST['gender'],
-            'dob'=> $_POST['dob'],
-            'mobile'=> $_POST['mobile'],
-            'company'=> $_POST['company'],
-            'aadhar'=> $_POST['aadhar'],
-            'fb_id'=> $_SESSION['oauth_uid'],
-            'name'=> $_SESSION['first_name'] . " " . $_SESSION['first_name'],
-            'email'=> $_SESSION['email'],
+            'gender' => $_POST['gender'],
+            'dob' => $_POST['dob'],
+            'mobile' => $_POST['mobile'],
+            'company' => $_POST['company'],
+            'aadhar' => $_POST['aadhar'],
+            'fb_id' => $_SESSION['oauth_uid'],
+            'name' => $_SESSION['first_name'] . " " . $_SESSION['first_name'],
+            'email' => $_SESSION['email'],
             'ref_status' => 0
         );
 
@@ -98,32 +98,26 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         require_once("config.php");
         $config = new ConfigVars();
         $result = $config->send_post_request($fields, "register");
-        if($result['error']) {
-            echo "<script>
-                $.notify({
-                    message: '".$result['message']."',
-                    type: 'success'
-                });
-            </script>";
-        }
-        else {
-            echo "<script>
-                $.notify({
-                    message: '".$result['message']."',
-                    type: 'success'
-                });
-            </script>";
-        }
-    }
-    else {
+        $obj = json_decode($result);
         echo "<script>
+        	$.notify({
+            	message: '" . $obj->{'message'} . "',
+                type: 'success'
+                });
+            </script>";
+        if (!$obj->{'error'}) {
+            $_SESSION['ApiKey'] = $obj->{'apiKey'};
+
+        } else {
+            echo "<script>
                 $.notify({
                     message: 'Please Complete All Fields',
                     type: 'success'
                 });
             </script>";
+        }
     }
 }
-?>
+    ?>
 
 <?php endblock() ?>

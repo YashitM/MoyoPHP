@@ -1,3 +1,10 @@
 1) Redirect User from login page to update profile (first time only)
 2) Use the inbuilt register API while submitting update profile details
 3) check whenther profile etc is being updated
+4) [6:07 PM, 3/6/2018] Pradeep Moyo: Source coming as      9, Seshadri Rd, Gandhi Nagar, Bengaluru, Karnataka 560009, India
+[6:08 PM, 3/6/2018] Pradeep Moyo: this much not required, in Location API there is one functioned called Place name....which gives u something like Gandhi Nagar, Bangalore
+5) Start_time format    2018-02-10 18:28:00, but now format coming as    03:32
+6) Take Ride
+    1. Date Picker has to be changed, its not convinient, lets use latest date pickers.
+    2. Some basic validations shud be taken care, Submit button shud not work, if date is blank
+    3. After entering all details, if there is no RIDES, then msg shud be shown
