@@ -9,7 +9,7 @@ if(!isset($_SESSION['logincust'])) {
 ?>
 
     <div class="container padded-container">
-        <form class="form-login" method="post" action="view_rides.php" id="offerrideform">
+        <form class="form-login" method="post" action="" id="offerrideform">
             <div class="input-group">
                 <input type="hidden" name="sou_lati" id="id_sou_lati" />
             </div>
@@ -30,20 +30,20 @@ if(!isset($_SESSION['logincust'])) {
                     </div>
                     <div class="form-row">
                         <label>
-                            <span>Date Of Ride</span>
+                            <span>Date Of Ride*</span>
                             <input type="date" id="id_dateofride" name="dateofride" placeholder="Date of Ride">
                         </label>
                     </div>
                     <div class="form-row">
                         <label>
-                            <span>Source Location</span>
+                            <span>Source Location*</span>
                             <input type="text" name="source_location" maxlength="1000" required="" placeholder="Select Location Below" id="id_source_location">
                         </label>
                     </div>
                     <button type="button" id="source_location_button_take_ride" style="margin-top: -20px;" data-toggle="modal" data-target="#myModal2">Source</button>
                     <div class="form-row">
                         <label>
-                            <span>Destination Location</span>
+                            <span>Destination Location*</span>
                             <input type="text" name="destination_location" maxlength="1000" required="" placeholder="Select Location Below" id="id_destination_location">
                         </label>
                     </div>
@@ -84,5 +84,84 @@ if(!isset($_SESSION['logincust'])) {
             </div>
         </div>
     </div>
+
+
+<?php
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ( !(!isset($_POST['sou_lati']) || trim($_POST['sou_lati']) == '') &&
+        !(!isset($_POST['sou_long']) || trim($_POST['sou_long']) == '') &&
+        !(!isset($_POST['des_lati']) || trim($_POST['des_lati']) == '') &&
+        !(!isset($_POST['des_long']) || trim($_POST['des_long']) == '')
+    ) {
+        if (!(!isset($_POST['dateofride']) || trim($_POST['dateofride']) == '')) {
+            $fields = array(
+                'source_latitiude'=> $_POST['sou_lati'],
+                'source_longitude'=> $_POST['sou_long'],
+                'destination_latitude'=> $_POST['des_lati'],
+                'destination_longitude'=> $_POST['des_long'],
+                'ride_date' => $_POST['dateofride']
+            );
+
+            require_once("config.php");
+            $config = new ConfigVars();
+
+            $have_api_key = 0;
+
+            if (isset($_SESSION['ApiKey'])) {
+                $fields['Authorization'] = $_SESSION['ApiKey'];
+                $have_api_key = 1;
+            }
+            else {
+                $inner_fields = array (
+                    'fb_id' => $_SESSION['oauth_uid']
+                );
+                $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
+                $inner_obj = json_decode($inner_result);
+                if(!$inner_obj->{'error'}) {
+                    $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
+                    $fields['Authorization'] = $_SESSION['ApiKey'];
+                    $have_api_key = 1;
+                }
+            }
+            if($have_api_key === 1) {
+                $result = $config->send_post_request($fields, "fetchriders");
+                echo $result;
+                $obj = json_decode($result);
+                echo "<script>
+                $.notify({
+                    message: '" . $obj->{'message'} . "',
+                    type: 'success'
+                });
+                </script>";
+            }
+            else {
+                echo "<script>
+                $.notify({
+                    message: 'Some error occurred. Please try again later.',
+                    type: 'success'
+                });
+                </script>";
+            }
+
+        }
+        else {
+            echo "<script>
+                $.notify({
+                    message: 'Please Complete All Fields',
+                    type: 'success'
+                });
+            </script>";
+        }
+    }
+    else {
+        echo "<script>
+                $.notify({
+                    message: 'Some error occurred. Please try again later.',
+                    type: 'success'
+                });
+            </script>";
+    }
+}
+?>
 
 <?php endblock() ?>
