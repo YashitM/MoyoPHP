@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c69dca30-9e29-4fb3-9e05-574384eee6e7" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/contact_us.php" afterPath="$PROJECT_DIR$/contact_us.php" />
+      <change beforePath="$PROJECT_DIR$/edit_ride.php" afterPath="$PROJECT_DIR$/edit_ride.php" />
+      <change beforePath="$PROJECT_DIR$/offer_rides.php" afterPath="$PROJECT_DIR$/offer_rides.php" />
       <change beforePath="$PROJECT_DIR$/take_ride.php" afterPath="$PROJECT_DIR$/take_ride.php" />
+      <change beforePath="$PROJECT_DIR$/view_profile.php" afterPath="$PROJECT_DIR$/view_profile.php" />
+      <change beforePath="$PROJECT_DIR$/view_requests.php" afterPath="$PROJECT_DIR$/view_requests.php" />
       <change beforePath="$PROJECT_DIR$/view_rides.php" afterPath="$PROJECT_DIR$/view_rides.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,77 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="update_profile.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/update_profile.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="542">
-              <caret line="106" column="23" lean-forward="true" selection-start-line="97" selection-start-column="7" selection-end-line="106" selection-end-column="23" />
-              <folding>
-                <marker date="1520343837640" expanded="true" signature="4166:4311" ph="..." />
-                <marker date="1520343837640" expanded="true" signature="4186:4288" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
-                <marker date="1520343837640" expanded="true" signature="4442:4606" ph="..." />
-                <marker date="1520343837640" expanded="true" signature="4469:4583" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="offer_rides.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/offer_rides.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="223" column="2" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="223" selection-end-column="2" />
-              <folding>
-                <marker date="1520345076492" expanded="true" signature="8059:8242" ph="..." />
-                <marker date="1520345076492" expanded="true" signature="8090:8215" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
-                <marker date="1520345076492" expanded="true" signature="8304:8487" ph="..." />
-                <marker date="1520345076492" expanded="true" signature="8335:8460" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
-                <marker date="1520345076492" expanded="true" signature="8522:8817" ph="..." />
-                <marker date="1520345076492" expanded="true" signature="8571:8757" ph="..." />
-                <marker date="1520345076492" expanded="true" signature="8598:8730" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-                <marker date="1520345076492" expanded="true" signature="8799:8817" ph="{...}" />
-                <marker date="1520345076492" expanded="true" signature="8826:8990" ph="..." />
-                <marker date="1520345076492" expanded="true" signature="8853:8883" ph="{...}" />
-                <marker date="1520345076492" expanded="true" signature="8853:8967" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
-                <marker date="1520345076492" expanded="true" signature="9042:9224" ph="..." />
-                <marker date="1520345076492" expanded="true" signature="9069:9201" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="take_ride.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/take_ride.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
-              <caret line="89" column="42" lean-forward="false" selection-start-line="89" selection-start-column="42" selection-end-line="89" selection-end-column="42" />
-              <caret line="88" column="5" lean-forward="true" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
-              <folding>
-                <marker date="1520347020611" expanded="true" signature="5412:5579" ph="..." />
-                <marker date="1520347020611" expanded="true" signature="5439:5552" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
-                <marker date="1520347020611" expanded="true" signature="5645:5831" ph="..." />
-                <marker date="1520347020611" expanded="true" signature="5672:5804" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-                <marker date="1520347020611" expanded="true" signature="5900:6064" ph="..." />
-                <marker date="1520347020611" expanded="true" signature="5927:6041" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
-                <marker date="1520347020611" expanded="true" signature="6116:6298" ph="..." />
-                <marker date="1520347020611" expanded="true" signature="6143:6275" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view_rides.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view_rides.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="19" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -114,26 +49,26 @@
         <option value="$PROJECT_DIR$/libs/Social_Login/loginFB.php" />
         <option value="$PROJECT_DIR$/libs/Social_Login/index.php" />
         <option value="$PROJECT_DIR$/base_require_login.php" />
-        <option value="$PROJECT_DIR$/view_requests.php" />
         <option value="$PROJECT_DIR$/libs/SocialAuth/autoload.php" />
         <option value="$PROJECT_DIR$/base.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/libs/API/DbHandler.php" />
         <option value="$PROJECT_DIR$/todo.txt" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/config.php" />
-        <option value="$PROJECT_DIR$/edit_ride.php" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/loginG.php" />
         <option value="$PROJECT_DIR$/logout.php" />
-        <option value="$PROJECT_DIR$/view_profile.php" />
         <option value="$PROJECT_DIR$/loginFB.php" />
         <option value="$PROJECT_DIR$/libs/API/index.php" />
         <option value="$PROJECT_DIR$/update_profile.php" />
-        <option value="$PROJECT_DIR$/offer_rides.php" />
         <option value="$PROJECT_DIR$/contact_us.php" />
-        <option value="$PROJECT_DIR$/view_rides.php" />
+        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/take_ride.php" />
+        <option value="$PROJECT_DIR$/offer_rides.php" />
+        <option value="$PROJECT_DIR$/view_profile.php" />
+        <option value="$PROJECT_DIR$/view_requests.php" />
+        <option value="$PROJECT_DIR$/edit_ride.php" />
+        <option value="$PROJECT_DIR$/view_rides.php" />
       </list>
     </option>
   </component>
@@ -185,12 +120,6 @@
               <item name="MoyoPHP" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="libs" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="API" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="MoyoPHP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MoyoPHP" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="libs" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="SocialAuth" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="MoyoPHP" type="b2602c69:ProjectViewProjectNode" />
@@ -261,18 +190,17 @@
       <workItem from="1520235619177" duration="9911000" />
       <workItem from="1520247468744" duration="9832000" />
       <workItem from="1520264983573" duration="464000" />
-      <workItem from="1520319589589" duration="16287000" />
+      <workItem from="1520319589589" duration="18257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76242000" />
+    <option name="totallyTimeSpent" value="78212000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1796875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1796875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -448,13 +376,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view_requests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -480,14 +401,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
           <caret line="190" column="36" lean-forward="false" selection-start-line="190" selection-start-column="35" selection-end-line="190" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="175" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -559,42 +472,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edit_ride.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="719">
-          <caret line="124" column="19" lean-forward="false" selection-start-line="124" selection-start-column="19" selection-end-line="124" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loginG.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view_profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="813">
-          <caret line="56" column="19" lean-forward="false" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -612,13 +493,29 @@
         <state relative-caret-position="377">
           <caret line="923" column="37" lean-forward="true" selection-start-line="923" selection-start-column="37" selection-end-line="923" selection-end-column="37" />
           <folding>
-            <marker date="1519746786963" expanded="true" signature="40232:40358" ph="..." />
-            <marker date="1519746786963" expanded="true" signature="40247:40300" ph="..." />
-            <marker date="1519746786963" expanded="true" signature="40315:40358" ph="..." />
-            <marker date="1519746786963" expanded="true" signature="40400:40767" ph="..." />
-            <marker date="1519746786963" expanded="true" signature="40417:40553" ph="..." />
-            <marker date="1519746786963" expanded="true" signature="40570:40750" ph="..." />
+            <marker date="1520348618230" expanded="true" signature="40232:40358" ph="..." />
+            <marker date="1520348618230" expanded="true" signature="40247:40300" ph="..." />
+            <marker date="1520348618230" expanded="true" signature="40315:40358" ph="..." />
+            <marker date="1520348618230" expanded="true" signature="40400:40767" ph="..." />
+            <marker date="1520348618230" expanded="true" signature="40417:40553" ph="..." />
+            <marker date="1520348618230" expanded="true" signature="40570:40750" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="113" column="35" lean-forward="true" selection-start-line="113" selection-start-column="35" selection-end-line="113" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -632,32 +529,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/contact_us.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1142">
-          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        <state relative-caret-position="80">
+          <caret line="4" column="36" lean-forward="true" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
           <folding>
-            <marker date="1520346077149" expanded="true" signature="3082:3227" ph="..." />
-            <marker date="1520346077149" expanded="true" signature="3102:3204" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
-            <marker date="1520346077149" expanded="true" signature="3281:3467" ph="..." />
-            <marker date="1520346077149" expanded="true" signature="3308:3440" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-            <marker date="1520346077149" expanded="true" signature="3519:3663" ph="..." />
-            <marker date="1520346077149" expanded="true" signature="3542:3568" ph="{...}" />
-            <marker date="1520346077149" expanded="true" signature="3542:3644" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
+            <marker date="1520349276458" expanded="true" signature="3593:3738" ph="..." />
+            <marker date="1520349276458" expanded="true" signature="3613:3715" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+            <marker date="1520349276458" expanded="true" signature="3792:3978" ph="..." />
+            <marker date="1520349276458" expanded="true" signature="3819:3951" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+            <marker date="1520349276458" expanded="true" signature="4030:4174" ph="..." />
+            <marker date="1520349276458" expanded="true" signature="4053:4079" ph="{...}" />
+            <marker date="1520349276458" expanded="true" signature="4053:4155" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/update_profile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="106" column="23" lean-forward="true" selection-start-line="97" selection-start-column="7" selection-end-line="106" selection-end-column="23" />
+        <state relative-caret-position="140">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
           <folding>
             <marker date="1520343837640" expanded="true" signature="4166:4311" ph="..." />
             <marker date="1520343837640" expanded="true" signature="4186:4288" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
@@ -667,51 +556,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/offer_rides.php">
+    <entry file="file://$PROJECT_DIR$/view_profile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="223" column="2" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="223" selection-end-column="2" />
-          <folding>
-            <marker date="1520345076492" expanded="true" signature="8059:8242" ph="..." />
-            <marker date="1520345076492" expanded="true" signature="8090:8215" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
-            <marker date="1520345076492" expanded="true" signature="8304:8487" ph="..." />
-            <marker date="1520345076492" expanded="true" signature="8335:8460" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
-            <marker date="1520345076492" expanded="true" signature="8522:8817" ph="..." />
-            <marker date="1520345076492" expanded="true" signature="8571:8757" ph="..." />
-            <marker date="1520345076492" expanded="true" signature="8598:8730" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-            <marker date="1520345076492" expanded="true" signature="8799:8817" ph="{...}" />
-            <marker date="1520345076492" expanded="true" signature="8826:8990" ph="..." />
-            <marker date="1520345076492" expanded="true" signature="8853:8883" ph="{...}" />
-            <marker date="1520345076492" expanded="true" signature="8853:8967" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
-            <marker date="1520345076492" expanded="true" signature="9042:9224" ph="..." />
-            <marker date="1520345076492" expanded="true" signature="9069:9201" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-          </folding>
+        <state relative-caret-position="460">
+          <caret line="23" column="1" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="23" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/take_ride.php">
+    <entry file="file://$PROJECT_DIR$/view_requests.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="89" column="42" lean-forward="false" selection-start-line="89" selection-start-column="42" selection-end-line="89" selection-end-column="42" />
-          <caret line="88" column="5" lean-forward="true" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+        <state relative-caret-position="440">
+          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit_ride.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/offer_rides.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
           <folding>
-            <marker date="1520347020611" expanded="true" signature="5412:5579" ph="..." />
-            <marker date="1520347020611" expanded="true" signature="5439:5552" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
-            <marker date="1520347020611" expanded="true" signature="5645:5831" ph="..." />
-            <marker date="1520347020611" expanded="true" signature="5672:5804" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-            <marker date="1520347020611" expanded="true" signature="5900:6064" ph="..." />
-            <marker date="1520347020611" expanded="true" signature="5927:6041" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
-            <marker date="1520347020611" expanded="true" signature="6116:6298" ph="..." />
-            <marker date="1520347020611" expanded="true" signature="6143:6275" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+            <marker date="1520349384586" expanded="true" signature="8578:8761" ph="..." />
+            <marker date="1520349384586" expanded="true" signature="8609:8734" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+            <marker date="1520349384586" expanded="true" signature="8823:9006" ph="..." />
+            <marker date="1520349384586" expanded="true" signature="8854:8979" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+            <marker date="1520349384586" expanded="true" signature="9090:9276" ph="..." />
+            <marker date="1520349384586" expanded="true" signature="9117:9249" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+            <marker date="1520349384586" expanded="true" signature="9345:9509" ph="..." />
+            <marker date="1520349384586" expanded="true" signature="9372:9486" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
+            <marker date="1520349384586" expanded="true" signature="9561:9743" ph="..." />
+            <marker date="1520349384586" expanded="true" signature="9588:9720" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view_rides.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="19" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="19" />
+        <state relative-caret-position="40">
+          <caret line="2" column="5" lean-forward="true" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/take_ride.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding>
+            <marker date="1520349373878" expanded="true" signature="5931:6098" ph="..." />
+            <marker date="1520349373878" expanded="true" signature="5958:6071" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+            <marker date="1520349373878" expanded="true" signature="6164:6350" ph="..." />
+            <marker date="1520349373878" expanded="true" signature="6191:6323" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+            <marker date="1520349373878" expanded="true" signature="6419:6583" ph="..." />
+            <marker date="1520349373878" expanded="true" signature="6446:6560" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
+            <marker date="1520349373878" expanded="true" signature="6635:6817" ph="..." />
+            <marker date="1520349373878" expanded="true" signature="6662:6794" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+          </folding>
         </state>
       </provider>
     </entry>
