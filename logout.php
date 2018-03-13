@@ -1,6 +1,3 @@
-<?php include 'base.php' ?>
-
-<?php startblock('content') ?>
 <?php
 if(!isset($_SESSION['logincust'])) {
     header("Location: login.php");
@@ -13,8 +10,4 @@ else if(isset($_GET['logout'])) {
         exit();
     }
 }
-?>
-
-<?php
-endblock();
 ?>

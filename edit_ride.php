@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once 'libs/phpti-0.9/ti.php';
 if(!isset($_SESSION['logincust'])) {
     header("Location: login.php");
     exit();
