@@ -80,7 +80,7 @@ else {
                         <a class="nav-link" href="offer_rides.php">Offer Rides</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="take_ride.php">Take Rides</a>
+                        <a class="nav-link" href="search_ride.php">Take Rides</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="view_requests.php">Ride Requests</a>

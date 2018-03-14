@@ -1,6 +1,7 @@
 <?php
     session_start();
     $update_profile_button = 0;
+    $num_rides = 0;
     require_once("config.php");
     $config = new ConfigVars();
     $inner_fields = array (
@@ -14,6 +15,16 @@
             $update_profile_button = 1;
         }
     }
+
+    $inner_result = $config->send_post_request($inner_fields, "fetchinguserpostedrides");
+    $inner_obj = json_decode($inner_result);
+    if(!$inner_obj->{'error'}) {
+        $num_rides = count($inner_obj->{'users'});
+    }
+
+
+
+
 ?>
     <!DOCTYPE html>
     <html>
@@ -75,7 +86,7 @@
                         <a class="nav-link" href="offer_rides.php">Offer Rides</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="take_ride.php">Take Rides</a>
+                        <a class="nav-link" href="search_ride.php">Take Rides</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="view_requests.php">Ride Requests</a>
@@ -118,14 +129,24 @@
                 echo $_SESSION['first_name']." ".$_SESSION['last_name'];
 
                 ?>
-                <!--            {% endif %}-->
                 <h1 class="profile_name"><?php echo $_SESSION['first_name']." ".$_SESSION['last_name']; ?></h1>
             </div>
-            <a href="view_rides.php" class="col-md-6 col-xs-6 follow line" align="center">
-                <h3>
-                    {{ num_rides }} <br/> <span>RIDE(s)</span>
-                </h3>
-            </a>
+            <?php
+                if($num_rides > 0) {
+                    ?>
+                    <a href="view_rides.php" class="col-md-6 col-xs-6 follow line" align="center">
+                    <?php
+                    }
+                    else {
+                    ?>
+                    <a href="#" class="col-md-6 col-xs-6 follow line" align="center">
+                    <?php
+                    }
+                    ?>
+                    <h3>
+                        <?php echo $num_rides ?> <br/> <span>RIDE(s)</span>
+                    </h3>
+                </a>
             <a href="" class="col-md-6 col-xs-6 follow line" align="center">
                 <h3>
                     {{ ref_status }} <br/> <span>REF STATUS</span>

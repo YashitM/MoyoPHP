@@ -1,5 +1,5 @@
 //Google Maps
-if (window.location.href.indexOf("take_ride") !== -1 || window.location.href.indexOf("offer_rides") !== -1 || window.location.href.indexOf("edit_ride") !== -1) {
+if (window.location.href.indexOf("search_ride") !== -1 || window.location.href.indexOf("offer_rides") !== -1 || window.location.href.indexOf("edit_ride") !== -1) {
     defaultLatLong = {lat: 12.978718, lng: 77.589731};
 
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -24,6 +24,7 @@ if (window.location.href.indexOf("take_ride") !== -1 || window.location.href.ind
 
     var currentLongitude = 0.0;
     var currentLatitude = 0.0;
+    var selectedLocation = "";
 
     google.maps.event.addListener(marker, 'dragend', function(marker){
         var latLng = marker.latLng;
@@ -34,6 +35,7 @@ if (window.location.href.indexOf("take_ride") !== -1 || window.location.href.ind
         geocoder.geocode({'location': latlng}, function(results, status) {
               if (status === 'OK') {
                 if (results[0]) {
+                  selectedLocation = results[0].address_components[0].short_name;
                   input.value = results[0].formatted_address;
                 } else {
                   window.alert('No results found');
@@ -72,14 +74,14 @@ if (window.location.href.indexOf("take_ride") !== -1 || window.location.href.ind
     $('#myModal').on('hidden.bs.modal', function (e) {
         var text = document.getElementById("location_input").value;
         if (clicked_by === "source_location_button") {
-            document.getElementById('id_source_location').value = text;
+            document.getElementById('id_source_location').value = selectedLocation;
             // console.log(currentLongitude)
             // console.log(currentLatitude)
             document.getElementById('id_sou_lati').value = currentLatitude;
             document.getElementById('id_sou_long').value = currentLongitude;
         }
         else if(clicked_by === "destination_location_button") {
-            document.getElementById('id_destination_location').value = text;
+            document.getElementById('id_destination_location').value = selectedLocation;
             // console.log(currentLongitude)
             // console.log(currentLatitude)
             document.getElementById('id_des_lati').value = currentLatitude;
@@ -91,20 +93,19 @@ if (window.location.href.indexOf("take_ride") !== -1 || window.location.href.ind
         google.maps.event.trigger(map, "resize");
         map.setCenter(defaultLatLong);
         clicked_by = e.relatedTarget.id;
-        console.log(clicked_by)
     });
 
     $('#myModal2').on('hidden.bs.modal', function (e) {
         var text = document.getElementById("location_input").value;
         if (clicked_by === "source_location_button_take_ride") {
-            document.getElementById('id_source_location').value = text;
+            document.getElementById('id_source_location').value = selectedLocation;
             // console.log(currentLongitude)
             // console.log(currentLatitude)
             document.getElementById('id_sou_lati').value = currentLatitude;
             document.getElementById('id_sou_long').value = currentLongitude;
         }
         else if(clicked_by === "destination_location_button_take_ride") {
-            document.getElementById('id_destination_location').value = text;
+            document.getElementById('id_destination_location').value = selectedLocation;
             // console.log(currentLongitude)
             // console.log(currentLatitude)
             document.getElementById('id_des_lati').value = currentLatitude;

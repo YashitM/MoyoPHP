@@ -81,7 +81,7 @@ else {
                             <a class="nav-link" href="offer_rides.php">Offer Rides</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="take_ride.php">Take Rides</a>
+                            <a class="nav-link" href="search_ride.php">Take Rides</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="view_requests.php">Ride Requests</a>
@@ -165,7 +165,7 @@ else {
                         </label>
                     </div>
                     <script>
-                        $('#id_dateofride').bootstrapMaterialDatePicker({ weekStart : 0, time: true });
+                        $('#id_dateofride').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
                     </script>
                     <div class="form-row">
                         <label>
@@ -235,6 +235,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             !(!isset($_POST['start_time']) || trim($_POST['start_time']) == '') &&
             !(!isset($_POST['dateofride']) || trim($_POST['dateofride']) == '')
         ) {
+
+            $date = date('Y-m-d', strtotime($_POST['dateofride']));
             $fields = array(
                 'car_model'=> $_POST['car_model'],
                 'seats'=> $_POST['seats'],
@@ -244,7 +246,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'source_longitude'=> $_POST['sou_long'],
                 'destination_latitude'=> $_POST['des_lati'],
                 'destination_longitude'=> $_POST['des_long'],
-                'ride_date' => $_POST['dateofride']
+                'ride_date' => $date
             );
 
             require_once("config.php");

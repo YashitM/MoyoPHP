@@ -18,6 +18,12 @@ else {
             exit();
         }
     }
+    $inner_result = $config->send_post_request($inner_fields, "fetchinguserpostedrides");
+    $inner_obj = json_decode($inner_result);
+    if(!$inner_obj->{'error'}) {
+        $rides = $inner_obj->{'users'};
+        echo $rides[0]->seats;
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -80,7 +86,7 @@ else {
                         <a class="nav-link" href="offer_rides.php">Offer Rides</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="take_ride.php">Take Rides</a>
+                        <a class="nav-link" href="search_ride.php">Take Rides</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="view_requests.php">Ride Requests</a>
@@ -107,8 +113,43 @@ else {
         </div>
     </div>
 </nav>
-
-<h1>LOOOOL TESTSSTSTST</h1>
+<div class="container padded-container">
+    <div class="heading-text">
+        Your Rides
+    </div>
+    <br>
+    <?php
+        for($x = 0; $x < count($rides); $x++) {
+            ?>
+            <div class="card">
+                <div class="card-header">
+                    Temp Ride Heading
+                </div>
+                <div class="card-block">
+                    <p class="card-title">
+                    <center>
+                        <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
+                        <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $rides[$x]->source_latitude; ?>,<?php echo $rides[$x]->source_longitude; ?>" target="_blank"><span class="search-location-text"><?php echo $rides[$x]->source; ?></span></a>
+                        <br>
+                        <i class="fa fa-arrows-v" style="font-size: 35px; padding-top: 6px;" aria-hidden="true"></i>
+                        <br>
+                        <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
+                        <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $rides[$x]->destination_latitude; ?>,<?php echo $rides[$x]->destination_longitude; ?>" target="_blank"><span class="search-location-text"><?php echo $rides[$x]->destination; ?></center></a>
+                    </span>
+                    </p>
+                    <p class="card-text">
+                        Date: <?php echo $rides[$x]->dateofride; ?>
+                        <br> Time: <?php echo $rides[$x]->start_time; ?>
+                        <br> Seats Available: <?php echo $rides[$x]->seats_available; ?>
+                    </p>
+                    <a href="{% url 'cancel_ride' ride.id %}" class="btn btn-danger">Cancel Ride</a>
+                    <a href="{% url 'edit_ride' ride.id %}" class="btn btn-primary">Edit Ride</a>
+                </div>
+            </div>
+            <?php
+        }
+    ?>
+</div>
 
 <footer id="myFooter" class="footer">
     <div class="container">
