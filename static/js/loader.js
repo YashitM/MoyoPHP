@@ -9,3 +9,6 @@ sr.reveal(document.getElementById('about-left'));
 sr.reveal(document.getElementById('about-right'));
 sr.reveal(document.querySelectorAll('.sub-heading-div'));
 
+$(".answer").click(function (e) {
+    $("#cancel_form").submit();
+});

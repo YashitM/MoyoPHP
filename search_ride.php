@@ -204,7 +204,6 @@ else {
                     'destination_longitude'=> $_POST['des_long'],
                     'ride_date' => $date
                 );
-
                 require_once("config.php");
                 $config = new ConfigVars();
 
@@ -227,6 +226,7 @@ else {
                     }
                 }
                 if($have_api_key === 1) {
+                    echo var_dump($fields);
                     $result = $config->send_post_request($fields, "fetchriders");
                     echo $result;
                     $obj = json_decode($result);

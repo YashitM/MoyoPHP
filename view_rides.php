@@ -22,8 +22,8 @@ else {
     $inner_obj = json_decode($inner_result);
     if(!$inner_obj->{'error'}) {
         $rides = $inner_obj->{'users'};
-        echo $rides[0]->seats;
     }
+//    echo var_dump($rides);
 }
 ?>
 <!DOCTYPE html>
@@ -123,7 +123,15 @@ else {
             ?>
             <div class="card">
                 <div class="card-header">
-                    Temp Ride Heading
+                    <?php
+                        if($rides[$x]->rideCancelStatus === 1) {
+                            echo "Ride Cancelled";
+                        }
+                        else {
+                            echo "Ride On!";
+                        }
+
+                    ?>
                 </div>
                 <div class="card-block">
                     <p class="card-title">
@@ -142,7 +150,7 @@ else {
                         <br> Time: <?php echo $rides[$x]->start_time; ?>
                         <br> Seats Available: <?php echo $rides[$x]->seats_available; ?>
                     </p>
-                    <a href="{% url 'cancel_ride' ride.id %}" class="btn btn-danger">Cancel Ride</a>
+                    <a href="cancel_ride.php?cancel=true&ride_id=<?php echo $rides[$x]->id;?>" class="btn btn-danger answer">Cancel Ride</a>
                     <a href="{% url 'edit_ride' ride.id %}" class="btn btn-primary">Edit Ride</a>
                 </div>
             </div>
@@ -245,3 +253,14 @@ else {
 
 </body>
 </html>
+
+<?php
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if(isset($_POST['answer'])) {
+            $ride_id = $_POST['answer'];
+            echo $ride_id;
+        }
+    }
+
+?>
