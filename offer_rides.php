@@ -235,12 +235,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             !(!isset($_POST['start_time']) || trim($_POST['start_time']) == '') &&
             !(!isset($_POST['dateofride']) || trim($_POST['dateofride']) == '')
         ) {
-
             $date = date('Y-m-d', strtotime($_POST['dateofride']));
+            $time = $date." ".$_POST['start_time'].":00";
             $fields = array(
                 'car_model'=> $_POST['car_model'],
                 'seats'=> $_POST['seats'],
-                'start_time'=> $_POST['start_time'],
+                'start_time'=> $time,
                 'cost'=> $_POST['cost'],
                 'source_latitiude'=> $_POST['sou_lati'],
                 'source_longitude'=> $_POST['sou_long'],

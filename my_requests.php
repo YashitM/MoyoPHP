@@ -10,7 +10,7 @@ else {
     $inner_fields = array (
         'fb_id' => $_SESSION['oauth_uid']
     );
-    $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
+    $inner_result = $config->send_post_request($inner_fields, "fetchingusercompletedetails");
     $inner_obj = json_decode($inner_result);
     if(!$inner_obj->{'error'}) {
         if($inner_obj->{'mobile'} === null || $inner_obj->{'dob'} === null || $inner_obj->{'gender'} === null ) {
@@ -18,15 +18,6 @@ else {
             exit();
         }
     }
-
-    if(isset($_SESSION['nearby_rides'])) {
-        $rides = $_SESSION['nearby_rides'];
-    }
-    else {
-        header('Location: search_ride.php');
-        exit();
-    }
-
 }
 ?>
 <!DOCTYPE html>
@@ -120,7 +111,7 @@ else {
 
 <div class="container padded-container">
     <div class="heading-text">
-        Nearby Rides
+        Your Requests
     </div>
     <br>
     <?php
@@ -197,7 +188,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
         if($have_api_key === 1) {
-            echo var_dump($fields);
             $result = $config->send_post_request($fields, "placeride");
             echo $result;
             $obj = json_decode($result);

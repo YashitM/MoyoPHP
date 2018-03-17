@@ -20,6 +20,92 @@ else {
     }
 }
 ?>
+
+
+<?php
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ( !(!isset($_POST['sou_lati']) || trim($_POST['sou_lati']) == '') &&
+        !(!isset($_POST['sou_long']) || trim($_POST['sou_long']) == '') &&
+        !(!isset($_POST['des_lati']) || trim($_POST['des_lati']) == '') &&
+        !(!isset($_POST['des_long']) || trim($_POST['des_long']) == '')
+    ) {
+        if (!(!isset($_POST['dateofride']) || trim($_POST['dateofride']) == '')) {
+            $date = date('Y-m-d', strtotime($_POST['dateofride']));
+            $fields = array(
+                'source_latitiude'=> $_POST['sou_lati'],
+                'source_longitude'=> $_POST['sou_long'],
+                'destination_latitude'=> $_POST['des_lati'],
+                'destination_longitude'=> $_POST['des_long'],
+                'ride_date' => $date
+            );
+            require_once("config.php");
+            $config = new ConfigVars();
+
+            $have_api_key = 0;
+
+            if (isset($_SESSION['ApiKey'])) {
+                $fields['Authorization'] = $_SESSION['ApiKey'];
+                $have_api_key = 1;
+            }
+            else {
+                $inner_fields = array (
+                    'fb_id' => $_SESSION['oauth_uid']
+                );
+                $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
+                $inner_obj = json_decode($inner_result);
+                if(!$inner_obj->{'error'}) {
+                    $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
+                    $fields['Authorization'] = $_SESSION['ApiKey'];
+                    $have_api_key = 1;
+                }
+            }
+            if($have_api_key === 1) {
+                $result = $config->send_post_request($fields, "fetchriders");
+                $obj = json_decode($result);
+                if(count($obj->{'users'}) == 0) {
+                    echo "<script>
+                            $.notify({
+                                message: 'No Rides Available. Please Check Again Later',
+                                type: 'success'
+                            });
+                            </script>";
+                }
+                else {
+                    $_SESSION['nearby_rides'] = $obj->{'users'};
+                    header("Location: take_ride.php");
+                    exit();
+
+                }
+            }
+            else {
+                echo "<script>
+                $.notify({
+                    message: 'Some error occurred. Please try again later.',
+                    type: 'success'
+                });
+                </script>";
+            }
+
+        }
+        else {
+            echo "<script>
+                $.notify({
+                    message: 'Please Complete All Fields',
+                    type: 'success'
+                });
+            </script>";
+        }
+    }
+    else {
+        echo "<script>
+                $.notify({
+                    message: 'Some error occurred. Please try again later.',
+                    type: 'success'
+                });
+            </script>";
+    }
+}
+?>
     <!DOCTYPE html>
     <html>
     <head>
@@ -188,94 +274,7 @@ else {
         </div>
     </div>
 
-    <?php
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if ( !(!isset($_POST['sou_lati']) || trim($_POST['sou_lati']) == '') &&
-            !(!isset($_POST['sou_long']) || trim($_POST['sou_long']) == '') &&
-            !(!isset($_POST['des_lati']) || trim($_POST['des_lati']) == '') &&
-            !(!isset($_POST['des_long']) || trim($_POST['des_long']) == '')
-        ) {
-            if (!(!isset($_POST['dateofride']) || trim($_POST['dateofride']) == '')) {
-                $date = date('Y-m-d', strtotime($_POST['dateofride']));
-                $fields = array(
-                    'source_latitiude'=> $_POST['sou_lati'],
-                    'source_longitude'=> $_POST['sou_long'],
-                    'destination_latitude'=> $_POST['des_lati'],
-                    'destination_longitude'=> $_POST['des_long'],
-                    'ride_date' => $date
-                );
-                require_once("config.php");
-                $config = new ConfigVars();
 
-                $have_api_key = 0;
-
-                if (isset($_SESSION['ApiKey'])) {
-                    $fields['Authorization'] = $_SESSION['ApiKey'];
-                    $have_api_key = 1;
-                }
-                else {
-                    $inner_fields = array (
-                        'fb_id' => $_SESSION['oauth_uid']
-                    );
-                    $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
-                    $inner_obj = json_decode($inner_result);
-                    if(!$inner_obj->{'error'}) {
-                        $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
-                        $fields['Authorization'] = $_SESSION['ApiKey'];
-                        $have_api_key = 1;
-                    }
-                }
-                if($have_api_key === 1) {
-                    echo var_dump($fields);
-                    $result = $config->send_post_request($fields, "fetchriders");
-                    echo $result;
-                    $obj = json_decode($result);
-                    if(count($obj->{'users'}) == 0) {
-                        echo "<script>
-                            $.notify({
-                                message: 'No Rides Available. Please Check Again Later',
-                                type: 'success'
-                            });
-                            </script>";
-                    }
-                    else {
-                        echo "<script>
-                            $.notify({
-                                message: '" . var_dump($obj->{'users'}) . "',
-                                type: 'success'
-                            });
-                            </script>";
-                    }
-                }
-                else {
-                    echo "<script>
-                $.notify({
-                    message: 'Some error occurred. Please try again later.',
-                    type: 'success'
-                });
-                </script>";
-                }
-
-            }
-            else {
-                echo "<script>
-                $.notify({
-                    message: 'Please Complete All Fields',
-                    type: 'success'
-                });
-            </script>";
-            }
-        }
-        else {
-            echo "<script>
-                $.notify({
-                    message: 'Some error occurred. Please try again later.',
-                    type: 'success'
-                });
-            </script>";
-        }
-    }
-    ?>
 
     <footer id="myFooter" class="footer">
         <div class="container">

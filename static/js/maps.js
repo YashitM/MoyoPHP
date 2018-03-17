@@ -35,7 +35,7 @@ if (window.location.href.indexOf("search_ride") !== -1 || window.location.href.i
         geocoder.geocode({'location': latlng}, function(results, status) {
               if (status === 'OK') {
                 if (results[0]) {
-                  selectedLocation = results[0].address_components[0].short_name;
+                  selectedLocation = results[0].address_components[2].short_name;
                   input.value = results[0].formatted_address;
                 } else {
                   window.alert('No results found');

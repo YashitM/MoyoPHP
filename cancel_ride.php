@@ -34,7 +34,6 @@ else if(isset($_GET['cancel']) && isset($_GET['ride_id'])) {
             $result = $config->send_post_request($fields, "cancelRide");
             $inner_obj = json_decode($result);
             if(!$inner_obj->{'error'}) {
-                echo "Lol";
                 header("Location: view_rides.php");
                 exit();
             }
@@ -49,7 +48,8 @@ else if(isset($_GET['cancel']) && isset($_GET['ride_id'])) {
 
     }
     else {
-        echo "LOl";
+        header("Location: view_rides.php");
+        exit();
     }
 
 }
