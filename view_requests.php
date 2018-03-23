@@ -7,16 +7,33 @@ if(!isset($_SESSION['logincust'])) {
 else {
     require_once("config.php");
     $config = new ConfigVars();
-    $inner_fields = array (
+    $fields = array (
         'fb_id' => $_SESSION['oauth_uid']
     );
-    $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
+    $inner_result = $config->send_post_request($fields, "fetchuserdetailsbyfbid");
     $inner_obj = json_decode($inner_result);
     if(!$inner_obj->{'error'}) {
         if($inner_obj->{'mobile'} === null || $inner_obj->{'dob'} === null || $inner_obj->{'gender'} === null ) {
             header("Location: update_profile.php");
             exit();
         }
+    }
+    $result = $config->send_post_request($fields, "fetchinguserrides");
+    $obj = json_decode($result);
+    if(!$obj->{'error'}) {
+        $ride_ids = array();
+        $users = $obj->{'users'};
+        echo var_dump($users);
+        if(count($users) == 0) {
+            $_SESSION['notification_message'] = "No Ride Requests.";
+            header("Location: index.php");
+            exit();
+        }
+    }
+    else {
+        $_SESSION['notification_message'] = "Some Error Occurred. Try Again Later";
+        header("Location: index.php");
+        exit();
     }
 }
 ?>
@@ -108,7 +125,95 @@ else {
     </div>
 </nav>
 
-<h1>LOOOOL TESTSSTSTST</h1>
+<div class="container padded-container">
+    <div class="heading-text" style="padding-bottom: 40px;">
+        Pending Ride Requests
+    </div>
+    <?php
+        for($x=0; $x<count($users); $x++) {
+            if($users[$x]->status === "0") {
+                ?>
+                <div class="card">
+                    <div class="card-header">
+                        Request By: <b><?php echo $users[$x]->name; ?></b>
+                    </div>
+                    <div class="card-block">
+                        <p class="card-title">
+                        <center>
+                            <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
+                            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $users[$x]->source_latitude; ?>,<?php echo $users[$x]->source_longitude; ?>"
+                               target="_blank"><span
+                                        class="search-location-text"><?php echo $users[$x]->source; ?></span></a>
+                            <br>
+                            <i class="fa fa-arrows-v" style="font-size: 35px; padding-top: 6px;" aria-hidden="true"></i>
+                            <br>
+                            <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
+                            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $users[$x]->destination_latitude; ?>,<?php echo $users[$x]->destination_longitude; ?>"
+                               target="_blank"><span class="search-location-text"><?php echo $users[$x]->destination; ?>
+                        </center>
+                        </a>
+                        </span>
+                        </p>
+                        <p class="card-text">
+                            Date: <?php echo $users[$x]->dateofride; ?>
+                            <br> Time: <?php echo $users[$x]->start_time; ?>
+                            <br> Message: <?php echo $users[$x]->message; ?>
+                        </p>
+                        <form action="" method="post">
+                            <input name="ride_id" id="ride_id" type="hidden" value="<?php echo $users[$x]->ride_task_id; ?>">
+                            <button type="submit" name="accept" class="btn btn-success answer">Accept</button>
+                            <button type="submit" name="reject" class="btn btn-danger answer">Reject</button>
+                        </form>
+                    </div>
+                </div>
+                <?php
+            }
+        }
+    ?>
+</div>
+
+
+<?php
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if(isset($_POST['ride_id'])) {
+            $fields = array(
+                'fb_id' => $_SESSION['oauth_uid'],
+                'ride_id' => $_POST['ride_id']
+            );
+            if (isset($_POST['accept'])) {
+                $fields['status'] = "1";
+            } elseif (isset($_POST['reject'])) {
+                $fields['status'] = "2";
+            }
+            $result = $config->send_post_request($fields, "acceptorrejectride");
+            $obj = json_decode($result);
+            echo var_dump($obj);
+//            if(!$obj->{'error'}) {
+//                $ride_ids = array();
+//                $users = $obj->{'users'};
+//                echo var_dump($users);
+//
+//            }
+//            else {
+//                echo "<script>
+//                    $.notify({
+//                        message: 'Some Error Occurred. Please Try Again Later',
+//                        type: 'success'
+//                    });
+//                    </script>";
+//            }
+        }
+        else {
+            echo "<script>
+            $.notify({
+                message: 'Some Error Occurred. Please Try Again Later',
+                type: 'success'
+            });
+            </script>";
+        }
+    }
+//    acceptorrejectrefernce
+?>
 
 <footer id="myFooter" class="footer">
     <div class="container">
@@ -168,8 +273,47 @@ else {
                     if (typeof(element) !== 'undefined' && element !== null) {
                         element.value = currentToken;
                     }
-                    console.log("Token Generated");
-                    console.log(currentToken);
+                    <?php
+
+                    $have_api_key = 0;
+
+                    if (isset($_SESSION['ApiKey'])) {
+                        $fields['Authorization'] = $_SESSION['ApiKey'];
+                        $have_api_key = 1;
+                    }
+                    else {
+                        $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
+                        $inner_obj = json_decode($inner_result);
+                        if(!$inner_obj->{'error'}) {
+                            $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
+                            $fields['Authorization'] = $_SESSION['ApiKey'];
+                            $have_api_key = 1;
+                        }
+                    }
+
+                    if($have_api_key === 1) {
+                    ?>
+                    var authorization = "<?php echo $_SESSION['ApiKey']; ?>";
+                    $.post("http://carzrideon.com/estRideon/v1/index.php/updateFcmID",
+                        {
+                            fcm_id: currentToken,
+                            Authorization: authorization
+                        },
+                        function(data, status){
+                            console.log("FCM Token Updated in DB");
+                        });
+                    <?php
+                    }
+                    else {
+                        echo "<script>
+                            $.notify({
+                                message: 'Some error occurred. Please Refresh The Page',
+                                type: 'success'
+                            });
+                            </script>";
+                    }
+
+                    ?>
                 } else {
                     console.log('No Instance ID token available. Request permission to generate one.');
                 }

@@ -22,8 +22,8 @@ else {
     $inner_obj = json_decode($inner_result);
     if(!$inner_obj->{'error'}) {
         $rides = $inner_obj->{'users'};
+//        echo var_dump($rides);
     }
-//    echo var_dump($rides);
 }
 ?>
 <!DOCTYPE html>
@@ -217,8 +217,47 @@ else {
                     if (typeof(element) !== 'undefined' && element !== null) {
                         element.value = currentToken;
                     }
-                    console.log("Token Generated");
-                    console.log(currentToken);
+                    <?php
+
+                    $have_api_key = 0;
+
+                    if (isset($_SESSION['ApiKey'])) {
+                        $fields['Authorization'] = $_SESSION['ApiKey'];
+                        $have_api_key = 1;
+                    }
+                    else {
+                        $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
+                        $inner_obj = json_decode($inner_result);
+                        if(!$inner_obj->{'error'}) {
+                            $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
+                            $fields['Authorization'] = $_SESSION['ApiKey'];
+                            $have_api_key = 1;
+                        }
+                    }
+
+                    if($have_api_key === 1) {
+                    ?>
+                    var authorization = "<?php echo $_SESSION['ApiKey']; ?>";
+                    $.post("http://carzrideon.com/estRideon/v1/index.php/updateFcmID",
+                        {
+                            fcm_id: currentToken,
+                            Authorization: authorization
+                        },
+                        function(data, status){
+                            console.log("FCM Token Updated in DB");
+                        });
+                    <?php
+                    }
+                    else {
+                        echo "<script>
+                            $.notify({
+                                message: 'Some error occurred. Please Refresh The Page',
+                                type: 'success'
+                            });
+                            </script>";
+                    }
+
+                    ?>
                 } else {
                     console.log('No Instance ID token available. Request permission to generate one.');
                 }

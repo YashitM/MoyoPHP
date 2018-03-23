@@ -10,13 +10,50 @@ else {
     $inner_fields = array (
         'fb_id' => $_SESSION['oauth_uid']
     );
-    $inner_result = $config->send_post_request($inner_fields, "fetchingusercompletedetails");
+    $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
     $inner_obj = json_decode($inner_result);
     if(!$inner_obj->{'error'}) {
         if($inner_obj->{'mobile'} === null || $inner_obj->{'dob'} === null || $inner_obj->{'gender'} === null ) {
             header("Location: update_profile.php");
             exit();
         }
+    }
+    $have_api_key = 0;
+
+    if (isset($_SESSION['ApiKey'])) {
+        $fields['Authorization'] = $_SESSION['ApiKey'];
+        $have_api_key = 1;
+    }
+    else {
+        $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
+        $inner_obj = json_decode($inner_result);
+        if(!$inner_obj->{'error'}) {
+            $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
+            $fields['Authorization'] = $_SESSION['ApiKey'];
+            $have_api_key = 1;
+        }
+    }
+
+    if($have_api_key === 1) {
+        $result = $config->send_get_request($fields, "tasks");
+        $obj = json_decode($result);
+        echo var_dump($fields);
+        echo $result;
+        // if(!$obj->{'error'}) {
+        //     $requests = $obj->{'users'};
+        // }
+        // else {
+        //     header("Location: view_profile.php");
+        //     exit();
+        // }
+    }
+    else {
+        echo "<script>
+        $.notify({
+            message: 'Some error occurred. Please try again later.',
+            type: 'success'
+        });
+        </script>";
     }
 }
 ?>
@@ -146,7 +183,7 @@ else {
                 <form action="" method="post">
                     <input type="hidden" name="ride_id" value="<?php echo $rides[$x]->sno; ?>">
                     <input type="text" id="message" name="message" >
-                    <button type="submit" class="btn btn-primary answer">Take Ride</a>
+                    <button type="submit" class="btn btn-primary answer">Take Ride</button>
                 </form>
             </div>
         </div>
@@ -279,8 +316,47 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (typeof(element) !== 'undefined' && element !== null) {
                         element.value = currentToken;
                     }
-                    console.log("Token Generated");
-                    console.log(currentToken);
+                    <?php
+
+                    $have_api_key = 0;
+
+                    if (isset($_SESSION['ApiKey'])) {
+                        $fields['Authorization'] = $_SESSION['ApiKey'];
+                        $have_api_key = 1;
+                    }
+                    else {
+                        $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
+                        $inner_obj = json_decode($inner_result);
+                        if(!$inner_obj->{'error'}) {
+                            $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
+                            $fields['Authorization'] = $_SESSION['ApiKey'];
+                            $have_api_key = 1;
+                        }
+                    }
+
+                    if($have_api_key === 1) {
+                    ?>
+                    var authorization = "<?php echo $_SESSION['ApiKey']; ?>";
+                    $.post("http://carzrideon.com/estRideon/v1/index.php/updateFcmID",
+                        {
+                            fcm_id: currentToken,
+                            Authorization: authorization
+                        },
+                        function(data, status){
+                            console.log("FCM Token Updated in DB");
+                        });
+                    <?php
+                    }
+                    else {
+                        echo "<script>
+                            $.notify({
+                                message: 'Some error occurred. Please Refresh The Page',
+                                type: 'success'
+                            });
+                            </script>";
+                    }
+
+                    ?>
                 } else {
                     console.log('No Instance ID token available. Request permission to generate one.');
                 }
