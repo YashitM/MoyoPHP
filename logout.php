@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(!isset($_SESSION['logincust'])) {
     header("Location: login.php");
     exit();
