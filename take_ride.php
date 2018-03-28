@@ -153,7 +153,7 @@ else {
                     <br> Seats Available: <?php echo $rides[$x]->seats_available; ?>
                 </p>
                 <form action="" method="post">
-                    <input type="hidden" name="ride_id" value="<?php echo $rides[$x]->sno; ?>">
+                    <input type="hidden" name="ride_id" value="<?php echo $rides[$x]->id; ?>">
                     <input type="text" id="message" name="message" >
                     <button type="submit" class="btn btn-primary answer">Take Ride</button>
                 </form>

@@ -125,13 +125,6 @@
         </div>
     </header>
 
-    <!--<script>-->
-    <!--    $.notify({-->
-    <!--        message: '{{ custom_notifications }}',-->
-    <!--        type: 'success'-->
-    <!--    });-->
-    <!--</script>-->
-
     <section id="about" class="bg-white">
         <div class="container">
             <div class="row">

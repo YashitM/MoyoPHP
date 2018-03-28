@@ -1,5 +1,14 @@
 <?php
 session_start();
+if(isset($_SESSION['notification_message'])) {
+    echo "<script>
+        $.notify({
+            message: '".$_SESSION['notification_message']."',
+            type: 'success'
+        });
+        </script>";
+    unset($_SESSION['notification_message']);
+}
 if(!isset($_SESSION['logincust'])) {
     header("Location: login.php");
     exit();
@@ -7,6 +16,50 @@ if(!isset($_SESSION['logincust'])) {
 else {
     require_once("config.php");
     $config = new ConfigVars();
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if(isset($_POST['ride_id'])) {
+            $fields = array(
+                'fb_id' => $_SESSION['oauth_uid'],
+                'ride_id' => $_POST['ride_id']
+            );
+            if (isset($_POST['accept'])) {
+                $fields['status'] = "1";
+            } elseif (isset($_POST['reject'])) {
+                $fields['status'] = "2";
+            }
+
+            $result = $config->send_post_request($fields, "acceptorrejectride");
+            $obj = json_decode($result);
+            if(!$obj->{'error'}) {
+                if($fields['status'] === "1") {
+                    $_SESSION['notification_message'] = "Ride Accepted";
+                }
+                else if($fields['status'] === "2") {
+                    $_SESSION['notification_message'] = "Ride Rejected";
+                }
+                else {
+                    $_SESSION['notification_message'] = $obj->{'message'};
+                }
+            }
+            else {
+                echo "<script>
+                    $.notify({
+                        message: '".$obj->{'message'}."',
+                        type: 'success'
+                    });
+                    </script>";
+            }
+        }
+        else {
+            echo "<script>
+            $.notify({
+                message: 'Some Error Occurred. Please Try Again Later',
+                type: 'success'
+            });
+            </script>";
+        }
+    }
+
     $fields = array (
         'fb_id' => $_SESSION['oauth_uid']
     );
@@ -23,7 +76,7 @@ else {
     if(!$obj->{'error'}) {
         $ride_ids = array();
         $users = $obj->{'users'};
-        echo var_dump($users);
+//        echo var_dump($users);
         if(count($users) == 0) {
             $_SESSION['notification_message'] = "No Ride Requests.";
             header("Location: index.php");
@@ -160,7 +213,7 @@ else {
                             <br> Message: <?php echo $users[$x]->message; ?>
                         </p>
                         <form action="" method="post">
-                            <input name="ride_id" id="ride_id" type="hidden" value="<?php echo $users[$x]->ride_task_id; ?>">
+                            <input name="ride_id" id="ride_id" type="hidden" value="<?php echo $users[$x]->ride_id; ?>">
                             <button type="submit" name="accept" class="btn btn-success answer">Accept</button>
                             <button type="submit" name="reject" class="btn btn-danger answer">Reject</button>
                         </form>
@@ -174,45 +227,7 @@ else {
 
 
 <?php
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if(isset($_POST['ride_id'])) {
-            $fields = array(
-                'fb_id' => $_SESSION['oauth_uid'],
-                'ride_id' => $_POST['ride_id']
-            );
-            if (isset($_POST['accept'])) {
-                $fields['status'] = "1";
-            } elseif (isset($_POST['reject'])) {
-                $fields['status'] = "2";
-            }
-            $result = $config->send_post_request($fields, "acceptorrejectride");
-            $obj = json_decode($result);
-            echo var_dump($obj);
-//            if(!$obj->{'error'}) {
-//                $ride_ids = array();
-//                $users = $obj->{'users'};
-//                echo var_dump($users);
-//
-//            }
-//            else {
-//                echo "<script>
-//                    $.notify({
-//                        message: 'Some Error Occurred. Please Try Again Later',
-//                        type: 'success'
-//                    });
-//                    </script>";
-//            }
-        }
-        else {
-            echo "<script>
-            $.notify({
-                message: 'Some Error Occurred. Please Try Again Later',
-                type: 'success'
-            });
-            </script>";
-        }
-    }
-//    acceptorrejectrefernce
+
 ?>
 
 <footer id="myFooter" class="footer">
