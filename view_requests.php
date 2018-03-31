@@ -225,11 +225,6 @@ else {
     ?>
 </div>
 
-
-<?php
-
-?>
-
 <footer id="myFooter" class="footer">
     <div class="container">
         <div class="row">
@@ -290,23 +285,23 @@ else {
                     }
                     <?php
 
-                    $have_api_key = 0;
+                        $have_api_key = 0;
 
-                    if (isset($_SESSION['ApiKey'])) {
-                        $fields['Authorization'] = $_SESSION['ApiKey'];
-                        $have_api_key = 1;
-                    }
-                    else {
-                        $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
-                        $inner_obj = json_decode($inner_result);
-                        if(!$inner_obj->{'error'}) {
-                            $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
+                        if (isset($_SESSION['ApiKey'])) {
                             $fields['Authorization'] = $_SESSION['ApiKey'];
                             $have_api_key = 1;
                         }
-                    }
+                        else {
+                            $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
+                            $inner_obj = json_decode($inner_result);
+                            if(!$inner_obj->{'error'}) {
+                                $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
+                                $fields['Authorization'] = $_SESSION['ApiKey'];
+                                $have_api_key = 1;
+                            }
+                        }
 
-                    if($have_api_key === 1) {
+                        if($have_api_key === 1) {
                     ?>
                     var authorization = "<?php echo $_SESSION['ApiKey']; ?>";
                     $.post("http://carzrideon.com/estRideon/v1/index.php/updateFcmID",
