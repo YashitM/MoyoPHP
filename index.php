@@ -1,24 +1,24 @@
 <?php
     session_start();
-    include_once 'loginG.php';
-    if(isset($_GET['code'])){
-        $gClient->authenticate($_GET['code']);
-        $_SESSION['token'] = $gClient->getAccessToken();
-        header('Location: ' . filter_var($redirectURL, FILTER_SANITIZE_URL));
-    }
-    if (isset($_SESSION['token'])) {
-        $gClient->setAccessToken($_SESSION['token']);
-    }
-    if ($gClient->getAccessToken())
-    {
-        $gpUserProfile = $google_oauthV2->userinfo->get();
-        $_SESSION['oauth_provider'] = 'Google';
-        $_SESSION['oauth_uid'] = $gpUserProfile['id'];
-        $_SESSION['first_name'] = $gpUserProfile['given_name'];
-        $_SESSION['last_name'] = $gpUserProfile['family_name'];
-        $_SESSION['email'] = $gpUserProfile['email'];
-        $_SESSION['logincust']='yes';
-    }
+//    include_once 'loginG.php';
+//    if(isset($_GET['code'])){
+//        $gClient->authenticate($_GET['code']);
+//        $_SESSION['token'] = $gClient->getAccessToken();
+//        header('Location: ' . filter_var($redirectURL, FILTER_SANITIZE_URL));
+//    }
+//    if (isset($_SESSION['token'])) {
+//        $gClient->setAccessToken($_SESSION['token']);
+//    }
+//    if ($gClient->getAccessToken())
+//    {
+//        $gpUserProfile = $google_oauthV2->userinfo->get();
+//        $_SESSION['oauth_provider'] = 'Google';
+//        $_SESSION['oauth_uid'] = $gpUserProfile['id'];
+//        $_SESSION['first_name'] = $gpUserProfile['given_name'];
+//        $_SESSION['last_name'] = $gpUserProfile['family_name'];
+//        $_SESSION['email'] = $gpUserProfile['email'];
+//        $_SESSION['logincust']='yes';
+//    }
     if(isset($_SESSION['notification_message'])) {
         echo "<script>
         $.notify({
