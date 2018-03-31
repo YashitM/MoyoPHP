@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c69dca30-9e29-4fb3-9e05-574384eee6e7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="20" column="7" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="20" selection-end-column="7" />
+            <state relative-caret-position="-1800">
+              <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
               <folding>
                 <marker date="1522535734684" expanded="true" signature="913:1052" ph="..." />
                 <marker date="1522535734684" expanded="true" signature="932:1033" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
@@ -156,11 +156,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2920">
-              <caret line="200" column="18" lean-forward="false" selection-start-line="200" selection-start-column="18" selection-end-line="200" selection-end-column="18" />
+            <state relative-caret-position="620">
+              <caret line="112" column="57" lean-forward="true" selection-start-line="112" selection-start-column="57" selection-end-line="112" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -209,7 +209,6 @@
         <option value="$PROJECT_DIR$/cancel_ride.php" />
         <option value="$PROJECT_DIR$/static/js/maps.js" />
         <option value="$PROJECT_DIR$/edit_ride.php" />
-        <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/my_requests.php" />
         <option value="$PROJECT_DIR$/offer_rides.php" />
         <option value="$PROJECT_DIR$/search_ride.php" />
@@ -223,6 +222,7 @@
         <option value="$PROJECT_DIR$/contact_us.php" />
         <option value="$PROJECT_DIR$/loginFB.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/login.php" />
       </list>
     </option>
   </component>
@@ -357,12 +357,12 @@
       <workItem from="1522308105546" duration="2359000" />
       <workItem from="1522331765739" duration="1305000" />
       <workItem from="1522342129165" duration="1652000" />
-      <workItem from="1522535494941" duration="318000" />
+      <workItem from="1522535494941" duration="415000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141929000" />
+    <option name="totallyTimeSpent" value="142026000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-117" width="1616" height="876" extended-state="6" />
@@ -644,14 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2920">
-          <caret line="200" column="18" lean-forward="false" selection-start-line="200" selection-start-column="18" selection-end-line="200" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loginFB.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -766,14 +758,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="7" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="20" selection-end-column="7" />
+        <state relative-caret-position="-1800">
+          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
           <folding>
             <marker date="1522535734684" expanded="true" signature="913:1052" ph="..." />
             <marker date="1522535734684" expanded="true" signature="932:1033" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
             <marker date="1522535734684" expanded="true" signature="12483:12729" ph="..." />
             <marker date="1522535734684" expanded="true" signature="12522:12690" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="112" column="57" lean-forward="true" selection-start-line="112" selection-start-column="57" selection-end-line="112" selection-end-column="57" />
+          <folding />
         </state>
       </provider>
     </entry>
