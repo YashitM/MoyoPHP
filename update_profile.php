@@ -4,6 +4,59 @@
         header("Location: login.php");
         exit();
     }
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (!(!isset($_POST['gender']) || trim($_POST['gender']) == '') &&
+            !(!isset($_POST['dob']) || trim($_POST['dob']) == '') &&
+            !(!isset($_POST['mobile']) || trim($_POST['mobile']) == '') &&
+            !(!isset($_POST['company']) || trim($_POST['company']) == '')) {
+
+            $ref_number = "";
+
+            $fields = array(
+                'gender' => $_POST['gender'],
+                'dob' => $_POST['dob'],
+                'mobile' => $_POST['mobile'],
+                'company' => $_POST['company'],
+                'fb_id' => $_SESSION['oauth_uid'],
+                'name' => $_SESSION['first_name'] . " " . $_SESSION['last_name'],
+                'email' => $_SESSION['email'],
+                'ref_status' => 0
+            );
+
+            if (isset($_POST['ref_number'])) {
+                $fields['ref_number'] = $_POST['ref_number'];
+            }
+
+            if (isset($_POST['ref_number'])) {
+                $fields['aadhar'] = $_POST['aadhar'];
+            }
+
+            require_once("config.php");
+            $config = new ConfigVars();
+            $result = $config->send_post_request($fields, "register");
+            $obj = json_decode($result);
+            // echo "<script>
+            //     $.notify({
+            //         message: '" . $obj->{'message'} . "',
+            //         type: 'success'
+            //         });
+            //     </script>";
+            if (!$obj->{'error'}) {
+                $_SESSION['ApiKey'] = $obj->{'apiKey'};
+                $_SESSION['notification_message'] = "Profile Updated Successfully";
+                header("Location: index.php");
+                exit();
+            } else {
+                echo "<script>
+                    $.notify({
+                        message: 'Please Complete All Fields',
+                        type: 'success'
+                    });
+                </script>";
+            }
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +147,7 @@
             </div>
         </nav>
         <div class="container padded-container">
-            <form class="form-login" method="post" action="#">
+            <form class="form-login" method="post" action="">
                 <div class="form-log-in-with-email">
                     <div class="form-white-background">
                         <div class="form-title-row">
@@ -120,7 +173,7 @@
                             </label>
                         </div>
                         <script>
-                            $('#id_dob').bootstrapMaterialDatePicker({ weekStart : 0, time: true });
+                            $('#id_dob').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
                         </script>
                         <div class="form-row">
                             <label>
@@ -153,58 +206,6 @@
                 </div>
             </form>
         </div>
-
-<?php
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!(!isset($_POST['gender']) || trim($_POST['gender']) == '') &&
-        !(!isset($_POST['dob']) || trim($_POST['dob']) == '') &&
-        !(!isset($_POST['mobile']) || trim($_POST['mobile']) == '') &&
-        !(!isset($_POST['company']) || trim($_POST['company']) == '') &&
-        !(!isset($_POST['aadhar']) || trim($_POST['aadhar']) == '')) {
-
-        $ref_number = "";
-
-        $fields = array(
-            'gender' => $_POST['gender'],
-            'dob' => $_POST['dob'],
-            'mobile' => $_POST['mobile'],
-            'company' => $_POST['company'],
-            'aadhar' => $_POST['aadhar'],
-            'fb_id' => $_SESSION['oauth_uid'],
-            'name' => $_SESSION['first_name'] . " " . $_SESSION['first_name'],
-            'email' => $_SESSION['email'],
-            'ref_status' => 0
-        );
-
-        if (isset($_POST['ref_number'])) {
-            $fields['ref_number'] = $_POST['ref_number'];
-        }
-
-        require_once("config.php");
-        $config = new ConfigVars();
-        $result = $config->send_post_request($fields, "register");
-        $obj = json_decode($result);
-        echo "<script>
-        	$.notify({
-            	message: '" . $obj->{'message'} . "',
-                type: 'success'
-                });
-            </script>";
-        if (!$obj->{'error'}) {
-            $_SESSION['ApiKey'] = $obj->{'apiKey'};
-
-        } else {
-            echo "<script>
-                $.notify({
-                    message: 'Please Complete All Fields',
-                    type: 'success'
-                });
-            </script>";
-        }
-    }
-}
-    ?>
-
 
         <footer id="myFooter" class="footer">
             <div class="container">
