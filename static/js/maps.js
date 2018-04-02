@@ -61,6 +61,20 @@ if (window.location.href.indexOf("search_ride") !== -1 || window.location.href.i
         marker.setPosition(place.geometry.location);
         currentLatitude = marker.getPosition().lat();
         currentLongitude = marker.getPosition().lng();
+        var latlng = {lat: currentLatitude, lng: currentLongitude};
+        var geocoder = new google.maps.Geocoder;
+        geocoder.geocode({'location': latlng}, function(results, status) {
+            if (status === 'OK') {
+                if (results[0]) {
+                    selectedLocation = results[0].address_components[2].short_name;
+                    input.value = results[0].formatted_address;
+                } else {
+                    window.alert('No results found');
+                }
+            } else {
+                window.alert('Geocoder failed due to: ' + status);
+            }
+        });
     });
 
     var clicked_by = "";
