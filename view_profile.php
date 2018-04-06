@@ -10,6 +10,7 @@
 
     $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
     $inner_obj = json_decode($inner_result);
+    $user_details = $inner_obj;
     if(!$inner_obj->{'error'}) {
         if($inner_obj->{'mobile'} === null || $inner_obj->{'dob'} === null || $inner_obj->{'gender'} === null ) {
             $update_profile_button = 1;
@@ -126,7 +127,7 @@
                     echo '<div class="outter"><img src="" class="image-circle"/></div>';
                 }
 
-                echo $_SESSION['first_name']." ".$_SESSION['last_name'];
+                echo $user_details->gender.", ".$user_details->dob;
 
                 ?>
                 <h1 class="profile_name"><?php echo $_SESSION['first_name']." ".$_SESSION['last_name']; ?></h1>
@@ -144,22 +145,32 @@
                     }
                     ?>
                     <h3>
-                        <?php echo $num_rides ?> <br/> <span>RIDE(s)</span>
+                        <?php echo $num_rides ?> <br/> <span>Rides Offered</span>
                     </h3>
                 </a>
             <a href="" class="col-md-6 col-xs-6 follow line" align="center">
                 <h3>
-                    {{ ref_status }} <br/> <span>REF STATUS</span>
+                    0 <br/> <span>Rides Taken</span>
                 </h3>
             </a>
             <div class="col-md-12 col-xs-12 login_control">
                 <div class="control">
-                    <div class="label">Email Address</div>
-                    <div class="label_text"><?php echo $_SESSION['email']; ?></div>
+                    <div class="label">Registered Mobile</div>
+                    <div class="label_text"><?php echo $user_details->mobile; ?></div>
                 </div>
                 <div class="control">
-                    <div class="label">Username</div>
-                    <div class="label_text">{{ user.username }}</div>
+                    <div class="label">Reference Status</div>
+                    <?php
+                        if($user_details->ref_status === "0") {
+                            echo "<div class=\"label_text\">No References Available</div>";
+                        }
+                        else {
+                            echo "<div class=\"label_text\">Referred to: $user_details->ref_status</div>";
+                        }
+
+
+                    ?>
+
                 </div>
 
                 <div align="center">
