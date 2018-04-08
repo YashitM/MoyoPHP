@@ -19,52 +19,6 @@ if(!isset($_SESSION['logincust'])) {
 else {
     require_once("config.php");
     $config = new ConfigVars();
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if(isset($_POST['ride_id']) && isset($_POST['ride_fb_id'])) {
-            $fields = array(
-                'fb_id' => $_SESSION['oauth_uid'],
-                'ride_id' => $_POST['ride_id']
-            );
-            if (isset($_POST['accept'])) {
-                $fields['status'] = "1";
-            } elseif (isset($_POST['reject'])) {
-                $fields['status'] = "2";
-            }
-
-            $result = $config->send_post_request($fields, "acceptorrejectride");
-            $obj = json_decode($result);
-            if(!$obj->{'error'}) {
-                if($fields['status'] === "1") {
-                    $_SESSION['notification_message'] = "Ride Accepted";
-                    $_SESSION['other_fb_id'] = $_POST['ride_fb_id'];
-                    header("Location: view_other_profile.php");
-                    exit();
-                }
-                else if($fields['status'] === "2") {
-                    $_SESSION['notification_message'] = "Ride Rejected";
-                }
-                else {
-                    $_SESSION['notification_message'] = $obj->{'message'};
-                }
-            }
-            else {
-                echo "<script>
-                    $.notify({
-                        message: '".$obj->{'message'}."',
-                        type: 'success'
-                    });
-                    </script>";
-            }
-        }
-        else {
-            echo "<script>
-            $.notify({
-                message: 'Some Error Occurred. Please Try Again Later',
-                type: 'success'
-            });
-            </script>";
-        }
-    }
 
     $fields = array (
         'fb_id' => $_SESSION['oauth_uid']
@@ -95,30 +49,30 @@ else {
     }
 }
 ?>
-    <!DOCTYPE html>
-    <html>
-    <head>
+<!DOCTYPE html>
+<html>
+<head>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Website</title>
+    <title>Website</title>
 
-        <link rel="icon" href="static/images/logo.png">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css" rel="stylesheet">
-        <link href="static/css/bootstrap-social.css" rel="stylesheet">
-        <link href="static/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+    <link rel="icon" href="static/images/logo.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap-social.css" rel="stylesheet">
+    <link href="static/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
 
 
-        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
 
-        <!-- FONTS -->
-        <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Merriweather|Raleway" rel="stylesheet">
-        <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Merriweather|Raleway" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    </head>
+</head>
 <body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -185,50 +139,52 @@ else {
 
 <div class="container padded-container">
     <div class="heading-text" style="padding-bottom: 40px;">
-        Pending Ride Requests
+        Rides Requested
     </div>
     <?php
-        for($x=0; $x<count($users); $x++) {
-            if($users[$x]->status === "0") {
-                ?>
-            <a href="view_other_profile.php?review=1">
-                <div class="card">
-                    <div class="card-header">
-                        Request By: <b><?php echo $users[$x]->name; ?></b>
-                    </div>
-                    <div class="card-block">
-                        <p class="card-title">
-                        <center>
-                            <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
-                            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $users[$x]->source_latitude; ?>,<?php echo $users[$x]->source_longitude; ?>"
-                               target="_blank"><span
-                                        class="search-location-text"><?php echo $users[$x]->source; ?></span></a>
-                            <br>
-                            <i class="fa fa-arrows-v" style="font-size: 35px; padding-top: 6px;" aria-hidden="true"></i>
-                            <br>
-                            <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
-                            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $users[$x]->destination_latitude; ?>,<?php echo $users[$x]->destination_longitude; ?>"
-                               target="_blank"><span class="search-location-text"><?php echo $users[$x]->destination; ?>
-                        </center>
-                        </a>
-                        </span>
-                        </p>
-                        <p class="card-text">
-                            Date: <?php echo $users[$x]->dateofride; ?>
-                            <br> Time: <?php echo $users[$x]->start_time; ?>
-                            <br> Message: <?php echo $users[$x]->message; ?>
-                        </p>
-                        <form action="" method="post">
-                            <input name="ride_id" id="ride_id" type="hidden" value="<?php echo $users[$x]->ride_id; ?>">
-                            <input name="ride_fb_id" id="ride_fb_id" type="hidden" value="<?php echo $users[$x]->ride_fb_id; ?>">
-                            <button type="submit" name="accept" class="btn btn-success answer">Accept</button>
-                            <button type="submit" name="reject" class="btn btn-danger answer">Reject</button>
-                        </form>
-                    </div>
-                </div>
-                <?php
-            }
-        }
+    for($x=0; $x<count($users); $x++) {
+    ?>
+    <div class="card">
+        <div class="card-header">
+            <?php
+                if($users[$x]->status === "0") {
+                    echo "Status: <b>Pending</b>";
+                }
+                else if($users[$x]->status === "1") {
+                    echo "Status: <b>Accepted!</b>";
+                }
+                else if($users[$x]->status === "2") {
+                    echo "Status: <b>Rejected :(</b>";
+                }
+            ?>
+        </div>
+        <div class="card-block">
+            <p class="card-title">
+                <center>
+                    <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
+                    <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $users[$x]->source_latitude; ?>,<?php echo $users[$x]->source_longitude; ?>"
+                       target="_blank"><span
+                            class="search-location-text"><?php echo $users[$x]->source; ?></span></a>
+                    <br>
+                    <i class="fa fa-arrows-v" style="font-size: 35px; padding-top: 6px;" aria-hidden="true"></i>
+                    <br>
+                    <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
+                    <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $users[$x]->destination_latitude; ?>,<?php echo $users[$x]->destination_longitude; ?>"
+                       target="_blank">
+                        <span class="search-location-text"><?php echo $users[$x]->destination; ?></span>
+                    </a>
+                </center>
+            </p>
+            <p class="card-text">
+                By: <?php echo $users[$x]->name; ?>
+                <br> Date: <?php echo $users[$x]->dateofride; ?>
+                <br> Time: <?php echo $users[$x]->start_time; ?>
+                <br> Message: <?php echo $users[$x]->message; ?>
+            </p>
+        </div>
+    </div>
+        <?php
+    }
     ?>
 </div>
 
@@ -292,23 +248,23 @@ else {
                     }
                     <?php
 
-                        $have_api_key = 0;
+                    $have_api_key = 0;
 
-                        if (isset($_SESSION['ApiKey'])) {
+                    if (isset($_SESSION['ApiKey'])) {
+                        $fields['Authorization'] = $_SESSION['ApiKey'];
+                        $have_api_key = 1;
+                    }
+                    else {
+                        $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
+                        $inner_obj = json_decode($inner_result);
+                        if(!$inner_obj->{'error'}) {
+                            $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
                             $fields['Authorization'] = $_SESSION['ApiKey'];
                             $have_api_key = 1;
                         }
-                        else {
-                            $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
-                            $inner_obj = json_decode($inner_result);
-                            if(!$inner_obj->{'error'}) {
-                                $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
-                                $fields['Authorization'] = $_SESSION['ApiKey'];
-                                $have_api_key = 1;
-                            }
-                        }
+                    }
 
-                        if($have_api_key === 1) {
+                    if($have_api_key === 1) {
                     ?>
                     var authorization = "<?php echo $_SESSION['ApiKey']; ?>";
                     $.post("http://carzrideon.com/estRideon/v1/index.php/updateFcmID",
