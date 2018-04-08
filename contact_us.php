@@ -110,7 +110,7 @@ else {
     </nav>
 
     <div class="container padded-container">
-        <form class="form-login" method="post" action="#">
+        <form class="form-login" method="post" action="#" enctype="multipart/form-data">
             <div class="form-log-in-with-email">
                 <div class="form-white-background">
                     <div class="form-title-row">
@@ -136,7 +136,7 @@ else {
                     <div class="form-row">
                         <label>
                             <span>Attachment</span>
-                            <input type="text" id="id_image_url" placeholder="Enter URL" name="image_url">
+                            <input type="file" id="id_image_url" placeholder="Browse Image" name="image_url">
                         </label>
                     </div>
                     <div class="form-row">
@@ -180,14 +180,20 @@ else {
             }
 
             if($have_api_key === 1) {
-                $result = $config->send_post_request($fields, "contactus");
+                if(isset($_FILES['image_url'])) {
+                    $result = $config->send_post_request_file($fields, "contactus", $_FILES['image_url']);
+                }
+                else {
+                    $result = $config->send_post_request($fields, "contactus");
+                }
+
                 $obj = json_decode($result);
                 echo "<script>
-        	$.notify({
-            	message: '" . $obj->{'message'} . "',
-                type: 'success'
-                });
-            </script>";
+                    $.notify({
+                        message: '" . $obj->{'message'} . "',
+                        type: 'success'
+                        });
+                    </script>";
             }
             else {
                 echo "<script>

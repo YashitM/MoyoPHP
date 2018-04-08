@@ -1,124 +1,43 @@
 <?php
-session_start();
-
-$redirect_other_profile_page = 0;
-
-if(isset($_SESSION['notification_message'])) {
-    echo "<script>
-        $.notify({
-            message: '".$_SESSION['notification_message']."',
-            type: 'success'
-        });
-        </script>";
-    unset($_SESSION['notification_message']);
-}
-if(!isset($_SESSION['logincust'])) {
-    header("Location: login.php");
-    exit();
-}
-else {
+    session_start();
+    $num_rides = 0;
     require_once("config.php");
     $config = new ConfigVars();
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if(isset($_POST['ride_id']) && isset($_POST['ride_fb_id'])) {
-            $fields = array(
-                'fb_id' => $_SESSION['oauth_uid'],
-                'ride_id' => $_POST['ride_id']
-            );
-            if (isset($_POST['accept'])) {
-                $fields['status'] = "1";
-            } elseif (isset($_POST['reject'])) {
-                $fields['status'] = "2";
-            }
+    if(isset($_SESSION['other_fb_id'])) {
 
-            $result = $config->send_post_request($fields, "acceptorrejectride");
-            $obj = json_decode($result);
-            if(!$obj->{'error'}) {
-                if($fields['status'] === "1") {
-                    $_SESSION['notification_message'] = "Ride Accepted";
-                    $_SESSION['other_fb_id'] = $_POST['ride_fb_id'];
-                    header("Location: view_other_profile.php");
-                    exit();
-                }
-                else if($fields['status'] === "2") {
-                    $_SESSION['notification_message'] = "Ride Rejected";
-                }
-                else {
-                    $_SESSION['notification_message'] = $obj->{'message'};
-                }
-            }
-            else {
-                echo "<script>
-                    $.notify({
-                        message: '".$obj->{'message'}."',
-                        type: 'success'
-                    });
-                    </script>";
-            }
-        }
-        else {
-            echo "<script>
-            $.notify({
-                message: 'Some Error Occurred. Please Try Again Later',
-                type: 'success'
-            });
-            </script>";
-        }
     }
-
-    $fields = array (
+    $inner_fields = array (
         'fb_id' => $_SESSION['oauth_uid']
     );
-    $inner_result = $config->send_post_request($fields, "fetchuserdetailsbyfbid");
+
+    $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
     $inner_obj = json_decode($inner_result);
-    if(!$inner_obj->{'error'}) {
-        if($inner_obj->{'mobile'} === null || $inner_obj->{'dob'} === null || $inner_obj->{'gender'} === null ) {
-            header("Location: update_profile.php");
-            exit();
-        }
-    }
-    $result = $config->send_post_request($fields, "fetchinguserrides");
-    $obj = json_decode($result);
-    if(!$obj->{'error'}) {
-        $ride_ids = array();
-        $users = $obj->{'users'};
-        if(count($users) == 0) {
-            $_SESSION['notification_message'] = "No Ride Requests.";
-            header("Location: index.php");
-            exit();
-        }
-    }
-    else {
-        $_SESSION['notification_message'] = "Some Error Occurred. Try Again Later";
-        header("Location: index.php");
-        exit();
-    }
-}
+    $user_details = $inner_obj;
 ?>
-    <!DOCTYPE html>
-    <html>
-    <head>
+<!DOCTYPE html>
+<html>
+<head>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Website</title>
+    <title>Website</title>
 
-        <link rel="icon" href="static/images/logo.png">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css" rel="stylesheet">
-        <link href="static/css/bootstrap-social.css" rel="stylesheet">
-        <link href="static/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+    <link rel="icon" href="static/images/logo.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap-social.css" rel="stylesheet">
+    <link href="static/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
 
 
-        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
 
-        <!-- FONTS -->
-        <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Merriweather|Raleway" rel="stylesheet">
-        <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Merriweather|Raleway" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    </head>
+</head>
 <body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -183,56 +102,41 @@ else {
     </div>
 </nav>
 
-<div class="container padded-container">
-    <div class="heading-text" style="padding-bottom: 40px;">
-        Pending Ride Requests
-    </div>
-    <?php
-        for($x=0; $x<count($users); $x++) {
-            if($users[$x]->status === "0") {
-                ?>
-            <a href="view_other_profile.php?review=1">
-                <div class="card">
-                    <div class="card-header">
-                        Request By: <b><?php echo $users[$x]->name; ?></b>
-                    </div>
-                    <div class="card-block">
-                        <p class="card-title">
-                        <center>
-                            <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
-                            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $users[$x]->source_latitude; ?>,<?php echo $users[$x]->source_longitude; ?>"
-                               target="_blank"><span
-                                        class="search-location-text"><?php echo $users[$x]->source; ?></span></a>
-                            <br>
-                            <i class="fa fa-arrows-v" style="font-size: 35px; padding-top: 6px;" aria-hidden="true"></i>
-                            <br>
-                            <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
-                            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $users[$x]->destination_latitude; ?>,<?php echo $users[$x]->destination_longitude; ?>"
-                               target="_blank"><span class="search-location-text"><?php echo $users[$x]->destination; ?>
-                        </center>
-                        </a>
-                        </span>
-                        </p>
-                        <p class="card-text">
-                            Date: <?php echo $users[$x]->dateofride; ?>
-                            <br> Time: <?php echo $users[$x]->start_time; ?>
-                            <br> Message: <?php echo $users[$x]->message; ?>
-                        </p>
-                        <form action="" method="post">
-                            <input name="ride_id" id="ride_id" type="hidden" value="<?php echo $users[$x]->ride_id; ?>">
-                            <input name="ride_fb_id" id="ride_fb_id" type="hidden" value="<?php echo $users[$x]->ride_fb_id; ?>">
-                            <button type="submit" name="accept" class="btn btn-success answer">Accept</button>
-                            <button type="submit" name="reject" class="btn btn-danger answer">Reject</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-                <?php
+<div class="container" style="margin-bottom: 46%;">
+    <div class="row login_box">
+        <div class="col-md-12 col-xs-12" align="center">
+            <div class="line"><h3 class="current_time"><?php echo date("h:i:sa"); ?></h3></div>
+            <?php
+            if($_SESSION['oauth_provider'] === "Facebook") {
+                echo '<div class="outter"><img src="//graph.facebook.com/'.$_SESSION['oauth_uid'].'/picture?type=large" class="image-circle"/></div>';
             }
-        }
-    ?>
-</div>
+            else if($_SESSION['oauth_provider'] === "Google") {
+                echo '<div class="outter"><img src="" class="image-circle"/></div>';
+            }
 
+            echo $user_details->gender.", ".$user_details->dob;
+
+            ?>
+            <h1 class="profile_name"><?php echo $_SESSION['first_name']." ".$_SESSION['last_name']; ?></h1>
+        </div>
+            <div class="col-md-12 col-xs-12 login_control">
+                <div class="control">
+                    <div class="label">Registered Mobile</div>
+                    <div class="label_text"><?php echo $user_details->mobile; ?></div>
+                </div>
+                <?php
+                    if(!isset($_GET['review'])) {
+                        echo "<div class=\"control\">
+                            <div class=\"label\">Ride Status</div>
+                            <div class=\"label_text\">Accepted!</div>
+                        </div>";
+                    }
+                ?>
+
+
+            </div>
+    </div>
+</div>
 <footer id="myFooter" class="footer">
     <div class="container">
         <div class="row">
@@ -293,23 +197,23 @@ else {
                     }
                     <?php
 
-                        $have_api_key = 0;
+                    $have_api_key = 0;
 
-                        if (isset($_SESSION['ApiKey'])) {
+                    if (isset($_SESSION['ApiKey'])) {
+                        $fields['Authorization'] = $_SESSION['ApiKey'];
+                        $have_api_key = 1;
+                    }
+                    else {
+                        $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
+                        $inner_obj = json_decode($inner_result);
+                        if(!$inner_obj->{'error'}) {
+                            $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
                             $fields['Authorization'] = $_SESSION['ApiKey'];
                             $have_api_key = 1;
                         }
-                        else {
-                            $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
-                            $inner_obj = json_decode($inner_result);
-                            if(!$inner_obj->{'error'}) {
-                                $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
-                                $fields['Authorization'] = $_SESSION['ApiKey'];
-                                $have_api_key = 1;
-                            }
-                        }
+                    }
 
-                        if($have_api_key === 1) {
+                    if($have_api_key === 1) {
                     ?>
                     var authorization = "<?php echo $_SESSION['ApiKey']; ?>";
                     $.post("http://carzrideon.com/estRideon/v1/index.php/updateFcmID",
