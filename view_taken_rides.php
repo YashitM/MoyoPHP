@@ -112,7 +112,7 @@ else {
                         <a class="nav-link" href="search_ride.php">Take Rides</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="view_requests.php">Requests</a>
+                        <a class="nav-link" href="view_rides.php">Rides Posted</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="view_taken_rides.php">Rides Requested</a>
