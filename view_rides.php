@@ -153,8 +153,9 @@ else {
                         <br> Time: <?php echo $rides[$x]->start_time; ?>
                         <br> Seats Available: <?php echo $rides[$x]->seats_available; ?>
                     </p>
+                    <a href="view_requests.php?ride_id=<?php echo $rides[$x]->id;?>" class="btn btn-success answer">View Requests</a>
+                    <a href="#" class="btn btn-primary">Edit Ride</a>
                     <a href="cancel_ride.php?cancel=true&ride_id=<?php echo $rides[$x]->id;?>" class="btn btn-danger answer">Cancel Ride</a>
-                    <a href="{% url 'edit_ride' ride.id %}" class="btn btn-primary">Edit Ride</a>
                 </div>
             </div>
             <?php

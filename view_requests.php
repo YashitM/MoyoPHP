@@ -66,33 +66,47 @@ else {
         }
     }
 
-    $fields = array (
-        'fb_id' => $_SESSION['oauth_uid']
-    );
-    $inner_result = $config->send_post_request($fields, "fetchuserdetailsbyfbid");
-    $inner_obj = json_decode($inner_result);
-    if(!$inner_obj->{'error'}) {
-        if($inner_obj->{'mobile'} === null || $inner_obj->{'dob'} === null || $inner_obj->{'gender'} === null ) {
-            header("Location: update_profile.php");
-            exit();
+    if(isset($_GET['ride_id'])) {
+        $fields = array (
+            'fb_id' => $_SESSION['oauth_uid']
+        );
+        $inner_result = $config->send_post_request($fields, "fetchuserdetailsbyfbid");
+        $inner_obj = json_decode($inner_result);
+        if(!$inner_obj->{'error'}) {
+            if($inner_obj->{'mobile'} === null || $inner_obj->{'dob'} === null || $inner_obj->{'gender'} === null ) {
+                header("Location: update_profile.php");
+                exit();
+            }
         }
-    }
-    $result = $config->send_post_request($fields, "fetchinguserrides");
-    $obj = json_decode($result);
-    if(!$obj->{'error'}) {
-        $ride_ids = array();
-        $users = $obj->{'users'};
-        if(count($users) == 0) {
-            $_SESSION['notification_message'] = "No Ride Requests.";
+        $inner_fields = array (
+            'ride_id' => $_GET['ride_id']
+        );
+        $result = $config->send_post_request($inner_fields, "fetchingridersinfo");
+        $obj = json_decode($result);
+        if(!$obj->{'error'}) {
+            $ride_ids = array();
+            $users = $obj->{'users'};
+            echo var_dump($users);
+            if(count($users) == 0) {
+                $_SESSION['notification_message'] = "No Ride Requests.";
+                header("Location: index.php");
+                exit();
+            }
+        }
+        else {
+            $_SESSION['notification_message'] = "Some Error Occurred. Try Again Later";
             header("Location: index.php");
             exit();
         }
     }
     else {
-        $_SESSION['notification_message'] = "Some Error Occurred. Try Again Later";
         header("Location: index.php");
         exit();
     }
+
+
+
+
 }
 ?>
     <!DOCTYPE html>
@@ -201,29 +215,17 @@ else {
                     </div>
                     <div class="card-block">
                         <p class="card-title">
-                        <center>
-                            <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
-                            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $users[$x]->source_latitude; ?>,<?php echo $users[$x]->source_longitude; ?>"
-                               target="_blank"><span
-                                        class="search-location-text"><?php echo $users[$x]->source; ?></span></a>
-                            <br>
-                            <i class="fa fa-arrows-v" style="font-size: 35px; padding-top: 6px;" aria-hidden="true"></i>
-                            <br>
-                            <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
-                            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $users[$x]->destination_latitude; ?>,<?php echo $users[$x]->destination_longitude; ?>"
-                               target="_blank"><span class="search-location-text"><?php echo $users[$x]->destination; ?>
-                        </center>
                         </a>
                         </span>
                         </p>
                         <p class="card-text">
-                            Date: <?php echo $users[$x]->dateofride; ?>
-                            <br> Time: <?php echo $users[$x]->start_time; ?>
+                            Gender: <?php echo $users[$x]->gender; ?>
+                            <br> Company: <?php echo $users[$x]->company; ?>
                             <br> Message: <?php echo $users[$x]->message; ?>
                         </p>
                         <form action="" method="post">
-                            <input name="ride_id" id="ride_id" type="hidden" value="<?php echo $users[$x]->ride_id; ?>">
-                            <input name="ride_fb_id" id="ride_fb_id" type="hidden" value="<?php echo $users[$x]->ride_fb_id; ?>">
+                            <input name="ride_id" id="ride_id" type="hidden" value="<?php echo $users[$x]->id; ?>">
+                            <input name="ride_fb_id" id="ride_fb_id" type="hidden" value="<?php echo $users[$x]->fb_id; ?>">
                             <button type="submit" name="accept" class="btn btn-success answer">Accept</button>
                             <button type="submit" name="reject" class="btn btn-danger answer">Reject</button>
                         </form>
