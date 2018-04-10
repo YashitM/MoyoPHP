@@ -163,7 +163,7 @@ else {
                 <p class="card-text">
                     Date: <?php echo $rides[$x]->dateofride; ?>
                     <br> Time: <?php echo $rides[$x]->start_time; ?>
-                    <br> Seats Available: <?php echo $rides[$x]->seats_available; ?>
+                    <br> Seats Available: <?php echo $rides[$x]->seats - $rides[$x]->seats_available; ?>
                 </p>
                 <form action="" method="post">
                     <input type="hidden" name="ride_id" value="<?php echo $rides[$x]->id; ?>">

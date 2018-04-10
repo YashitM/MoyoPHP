@@ -25,5 +25,4 @@ Take Ride:
 5. After accpeting ride the seats count shud be decreased
 
 Requests:
-1. Click on any profile : It will take you to Own profile.
-2. Order of requests shud be sorted by time...latest shud be on top
+1. Order of requests shud be sorted by time...latest shud be on top

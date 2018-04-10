@@ -23,9 +23,18 @@
         $num_rides = count($inner_obj->{'users'});
     }
 
-
-
-
+    $result = $config->send_post_request($inner_fields, "fetchinguserrides");
+    $obj = json_decode($result);
+    $ride_taken_count = 0;
+    if(!$obj->{'error'}) {
+        $ride_ids = array();
+        $users = $obj->{'users'};
+        for($x = 0; $x<count($users); $x++) {
+            if($users[$x]->status === "1") {
+                $ride_taken_count += 1;
+            }
+        }
+    }
 ?>
     <!DOCTYPE html>
     <html>
@@ -153,7 +162,7 @@
                 </a>
             <a href="" class="col-md-6 col-xs-6 follow line" align="center">
                 <h3>
-                    0 <br/> <span>Rides Taken</span>
+                    <?php echo $ride_taken_count ?> <br/> <span>Rides Taken</span>
                 </h3>
             </a>
             <div class="col-md-12 col-xs-12 login_control">
