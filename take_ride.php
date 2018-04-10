@@ -135,20 +135,31 @@ else {
             </div>
             <div class="card-block">
                 <p class="card-title">
-                <center>
-                    <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
-                    <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $rides[$x]->source_latitude; ?>,<?php echo $rides[$x]->source_longitude; ?>"
-                        target="_blank"><span
-                                class="search-location-text"><?php echo $rides[$x]->source; ?></span></a>
-                    <br>
-                    <i class="fa fa-arrows-v" style="font-size: 35px; padding-top: 6px;" aria-hidden="true"></i>
-                    <br>
-                    <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
-                    <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $rides[$x]->destination_latitude; ?>,<?php echo $rides[$x]->destination_longitude; ?>"
-                        target="_blank"><span class="search-location-text"><?php echo $rides[$x]->destination; ?>
-                </center>
-                </a>
-                </span>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <?php
+                                if($_SESSION['oauth_provider'] === "Facebook") {
+                                    echo '<div class="outter"><img src="//graph.facebook.com/'.$rides[$x]->fb_id.'/picture?type=large" class="image-circle"/></div>';
+                                }
+                            ?>
+                        </div>
+                        <div class="col-lg-10">
+                            <br>
+                            <br>
+                            <center>
+                                <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
+                                <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $rides[$x]->source_latitude; ?>,<?php echo $rides[$x]->source_longitude; ?>"
+                                   target="_blank"><span
+                                            class="search-location-text"><?php echo $rides[$x]->source; ?></span></a>
+                                <br>
+                                <i class="fa fa-arrows-v" style="font-size: 35px; padding-top: 6px;" aria-hidden="true"></i>
+                                <br>
+                                <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
+                                <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $rides[$x]->destination_latitude; ?>,<?php echo $rides[$x]->destination_longitude; ?>"
+                                   target="_blank"><span class="search-location-text"><?php echo $rides[$x]->destination; ?></span></a>
+                            </center>
+                        </div>
+                    </div>
                 </p>
                 <p class="card-text">
                     Date: <?php echo $rides[$x]->dateofride; ?>

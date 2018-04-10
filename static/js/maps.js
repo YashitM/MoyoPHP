@@ -1,6 +1,20 @@
 //Google Maps
 if (window.location.href.indexOf("search_ride") !== -1 || window.location.href.indexOf("offer_rides") !== -1 || window.location.href.indexOf("edit_ride") !== -1) {
-    defaultLatLong = {lat: 12.978718, lng: 77.589731};
+    var defaultLatLong = {lat: 12.978718, lng: 77.589731};
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            defaultLatLong = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            console.log(defaultLatLong);
+        }, function() {
+            console.log("Couldn't fetch current location. Try again later");
+        });
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
 
     var map = new google.maps.Map(document.getElementById('map'), {
       center: defaultLatLong,
@@ -11,9 +25,7 @@ if (window.location.href.indexOf("search_ride") !== -1 || window.location.href.i
     var input = document.getElementById('location_input');
 
     var autocomplete = new google.maps.places.Autocomplete(input);
-
     autocomplete.bindTo('bounds',map);
-    // map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
 
     var marker = new google.maps.Marker({
         map: map,
@@ -21,6 +33,7 @@ if (window.location.href.indexOf("search_ride") !== -1 || window.location.href.i
         draggable: true,
         clickable: true
     });
+
 
     var currentLongitude = 0.0;
     var currentLatitude = 0.0;
