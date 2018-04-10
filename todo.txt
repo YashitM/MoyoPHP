@@ -21,8 +21,8 @@ Take Ride:
 2. seats available value is wrong
 3. By default msg is Hi for ride request there shud be message box and Check box for accpeting terms and conditions
 4. After Accepting ride - redirecting to profile page/ lets redirect to Home page
------------------ Done ----------------------
 5. After accpeting ride the seats count shud be decreased
 
+----------------- Done ----------------------
 Requests:
 1. Order of requests shud be sorted by time...latest shud be on top
