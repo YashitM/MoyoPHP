@@ -140,15 +140,15 @@ else {
                     <div class="form-row">
                         <label>
                             <span>Seats*</span>
-                            <input type="text" id="id_seats" placeholder="Enter No. of Seats" name="seats">
+                            <input type="number" id="id_seats" placeholder="Enter No. of Seats" name="seats" max="8">
                         </label>
                     </div>
-                    <div class="form-row">
-                        <label>
-                            <span>Seats Available</span>
-                            <input type="text" id="id_seats_available" placeholder="Enter No. of Seats Available" name="seats_available">
-                        </label>
-                    </div>
+<!--                    <div class="form-row">-->
+<!--                        <label>-->
+<!--                            <span>Seats Available</span>-->
+<!--                            <input type="text" id="id_seats_available" placeholder="Enter No. of Seats Available" name="seats_available">-->
+<!--                        </label>-->
+<!--                    </div>-->
                     <div class="form-row">
                         <label>
                             <span>Cost*</span>
