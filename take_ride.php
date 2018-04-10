@@ -129,38 +129,37 @@ else {
     <?php
     for($x = 0; $x < count($rides); $x++) {
         ?>
+    <a href="view_other_profile.php?review=1&id=<?php echo $rides[$x]->fb_id; ?>">
         <div class="card">
             <div class="card-header">
                 <?php echo $rides[$x]->name; ?>
             </div>
             <div class="card-block">
-                <p class="card-title">
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <?php
-                                if($_SESSION['oauth_provider'] === "Facebook") {
-                                    echo '<div class="outter"><img src="//graph.facebook.com/'.$rides[$x]->fb_id.'/picture?type=large" class="image-circle"/></div>';
-                                }
-                            ?>
-                        </div>
-                        <div class="col-lg-10">
-                            <br>
-                            <br>
-                            <center>
-                                <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
-                                <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $rides[$x]->source_latitude; ?>,<?php echo $rides[$x]->source_longitude; ?>"
-                                   target="_blank"><span
-                                            class="search-location-text"><?php echo $rides[$x]->source; ?></span></a>
-                                <br>
-                                <i class="fa fa-arrows-v" style="font-size: 35px; padding-top: 6px;" aria-hidden="true"></i>
-                                <br>
-                                <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
-                                <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $rides[$x]->destination_latitude; ?>,<?php echo $rides[$x]->destination_longitude; ?>"
-                                   target="_blank"><span class="search-location-text"><?php echo $rides[$x]->destination; ?></span></a>
-                            </center>
-                        </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <?php
+                            if($_SESSION['oauth_provider'] === "Facebook") {
+                                echo '<div class="outter"><img src="//graph.facebook.com/'.$rides[$x]->fb_id.'/picture?type=large" class="image-circle"/></div>';
+                            }
+                        ?>
                     </div>
-                </p>
+                    <div class="col-lg-8">
+                        <br>
+                        <br>
+                        <center>
+                            <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
+                            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $rides[$x]->source_latitude; ?>,<?php echo $rides[$x]->source_longitude; ?>"
+                               target="_blank"><span
+                                        class="search-location-text"><?php echo $rides[$x]->source; ?></span></a>
+                            <br>
+                            <i class="fa fa-arrows-v" style="font-size: 35px; padding-top: 6px;" aria-hidden="true"></i>
+                            <br>
+                            <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
+                            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $rides[$x]->destination_latitude; ?>,<?php echo $rides[$x]->destination_longitude; ?>"
+                               target="_blank"><span class="search-location-text"><?php echo $rides[$x]->destination; ?></span></a>
+                        </center>
+                    </div>
+                </div>
                 <p class="card-text">
                     Date: <?php echo $rides[$x]->dateofride; ?>
                     <br> Time: <?php echo $rides[$x]->start_time; ?>
@@ -168,7 +167,8 @@ else {
                 </p>
                 <form action="" method="post">
                     <input type="hidden" name="ride_id" value="<?php echo $rides[$x]->id; ?>">
-                    <input type="text" id="message" name="message" >
+                    <input type="text" id="message" name="message" placeholder="Enter Message (Optional)"><br><br>
+                    <input type="checkbox" name="conditions" value="">&nbsp;&nbsp;I agree to the <a href="">Terms of Service</a><br>
                     <button type="submit" class="btn btn-primary answer">Take Ride</button>
                 </form>
             </div>
@@ -176,56 +176,71 @@ else {
         <?php
     }
     ?>
+    </a>
 </div>
 
 <?php
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ( !(!isset($_POST['ride_id']) || trim($_POST['ride_id']) == '')) {
-        $fields = array(
-            'ride_id'=> $_POST['ride_id'],
-            'fb_id' => $_SESSION['oauth_uid'],
-            'user_name' => $_SESSION['first_name']
-        );
-        if (!(!isset($_POST['message']) || trim($_POST['message']) == '')) {
-            $fields['message'] = $_POST['message'];
-        }
-        require_once("config.php");
-        $config = new ConfigVars();
-
-        $have_api_key = 0;
-
-        if (isset($_SESSION['ApiKey'])) {
-            $fields['Authorization'] = $_SESSION['ApiKey'];
-            $have_api_key = 1;
-        }
-        else {
-            $inner_fields = array (
-                'fb_id' => $_SESSION['oauth_uid']
+        if(isset($_POST['conditions'])) {
+            $fields = array(
+                'ride_id'=> $_POST['ride_id'],
+                'fb_id' => $_SESSION['oauth_uid'],
+                'user_name' => $_SESSION['first_name']
             );
-            $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
-            $inner_obj = json_decode($inner_result);
-            if(!$inner_obj->{'error'}) {
-                $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
+            if (!(!isset($_POST['message']) || trim($_POST['message']) == '')) {
+                $fields['message'] = $_POST['message'];
+            }
+            else {
+                $fields['message'] = "Hi";
+            }
+
+            require_once("config.php");
+            $config = new ConfigVars();
+
+            $have_api_key = 0;
+
+            if (isset($_SESSION['ApiKey'])) {
                 $fields['Authorization'] = $_SESSION['ApiKey'];
                 $have_api_key = 1;
             }
-        }
-        if($have_api_key === 1) {
-            $result = $config->send_post_request($fields, "placeride");
-            $obj = json_decode($result);
-            echo "<script>
+            else {
+                $inner_fields = array (
+                    'fb_id' => $_SESSION['oauth_uid']
+                );
+                $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
+                $inner_obj = json_decode($inner_result);
+                if(!$inner_obj->{'error'}) {
+                    $_SESSION['ApiKey'] = $inner_obj->{'apiKey'};
+                    $fields['Authorization'] = $_SESSION['ApiKey'];
+                    $have_api_key = 1;
+                }
+            }
+            if($have_api_key === 1) {
+                $result = $config->send_post_request($fields, "placeride");
+                $obj = json_decode($result);
+                echo "<script>
             $.notify({
                 message: '" . $obj->{'message'} . "',
                 type: 'success'
             });
             </script>";
-        }
-        else {
-            echo "<script>
+            }
+            else {
+                echo "<script>
             $.notify({
                 message: 'Some error occurred. Please try again later.',
                 type: 'success'
             });
+            </script>";
+            }
+        }
+        else {
+            echo "<script>
+                $.notify({
+                    message: 'Agree to the Terms of Service.',
+                    type: 'success'
+                });
             </script>";
         }
     }

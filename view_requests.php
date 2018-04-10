@@ -86,7 +86,6 @@ else {
         if(!$obj->{'error'}) {
             $ride_ids = array();
             $users = $obj->{'users'};
-            echo var_dump($users);
             if(count($users) == 0) {
                 $_SESSION['notification_message'] = "No Ride Requests.";
                 header("Location: index.php");
@@ -208,21 +207,28 @@ else {
         for($x=0; $x<count($users); $x++) {
             if($users[$x]->status === "0") {
                 ?>
-            <a href="view_other_profile.php?review=1">
+            <a href="view_other_profile.php?review=1&id=<?php echo $users[$x]->fb_id; ?>">
                 <div class="card">
                     <div class="card-header">
                         Request By: <b><?php echo $users[$x]->name; ?></b>
                     </div>
                     <div class="card-block">
-                        <p class="card-title">
-                        </a>
-                        </span>
-                        </p>
-                        <p class="card-text">
-                            Gender: <?php echo $users[$x]->gender; ?>
-                            <br> Company: <?php echo $users[$x]->company; ?>
-                            <br> Message: <?php echo $users[$x]->message; ?>
-                        </p>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <?php
+                                    echo '<div class="outter"><img src="//graph.facebook.com/'.$users[$x]->fb_id.'/picture?type=large" class="image-circle"/></div>';
+                                ?>
+                            </div>
+                            <div class="col-lg-8">
+                                <br>
+                                <br>
+                                <p class="card-text">
+                                    Gender: <?php echo $users[$x]->gender; ?>
+                                    <br> Company: <?php echo $users[$x]->company; ?>
+                                    <br> Message: <?php echo $users[$x]->message; ?>
+                                </p>
+                            </div>
+                        </div>
                         <form action="" method="post">
                             <input name="ride_id" id="ride_id" type="hidden" value="<?php echo $users[$x]->id; ?>">
                             <input name="ride_fb_id" id="ride_fb_id" type="hidden" value="<?php echo $users[$x]->fb_id; ?>">
@@ -235,6 +241,7 @@ else {
             }
         }
     ?>
+            </a>
 </div>
 
 <footer id="myFooter" class="footer">

@@ -3,16 +3,21 @@
     $num_rides = 0;
     require_once("config.php");
     $config = new ConfigVars();
-    if(isset($_SESSION['other_fb_id'])) {
-
+    if(isset($_GET['id'])) {
+        $inner_fields = array (
+            'fb_id' => $_GET['id']
+        );
+        $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
+        $inner_obj = json_decode($inner_result);
+        $user_details = $inner_obj;
     }
-    $inner_fields = array (
-        'fb_id' => $_SESSION['oauth_uid']
-    );
+    else {
+        $_SESSION['notification_message'] = "Some Error Occurred. Please Try Again Later";
+        header("Location: index.php");
+        exit();
+    }
 
-    $inner_result = $config->send_post_request($inner_fields, "fetchuserdetailsbyfbid");
-    $inner_obj = json_decode($inner_result);
-    $user_details = $inner_obj;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -109,23 +114,20 @@
     <div class="row login_box">
         <div class="col-md-12 col-xs-12" align="center">
             <div class="line"><h3 class="current_time"><?php echo date("h:i:sa"); ?></h3></div>
+            <h1 class="profile_name"><?php echo $user_details->name; ?></h1>
             <?php
-            if($_SESSION['oauth_provider'] === "Facebook") {
-                echo '<div class="outter"><img src="//graph.facebook.com/'.$_SESSION['oauth_uid'].'/picture?type=large" class="image-circle"/></div>';
-            }
-            else if($_SESSION['oauth_provider'] === "Google") {
-                echo '<div class="outter"><img src="" class="image-circle"/></div>';
-            }
-
-            echo $user_details->gender.", ".$user_details->dob;
-
+                echo '<div class="outter"><img src="//graph.facebook.com/'.$_GET['id'].'/picture?type=large" class="image-circle"/></div>';
+                echo $user_details->gender.", ".$user_details->dob;
             ?>
-            <h1 class="profile_name"><?php echo $_SESSION['first_name']." ".$_SESSION['last_name']; ?></h1>
         </div>
             <div class="col-md-12 col-xs-12 login_control">
                 <div class="control">
                     <div class="label">Registered Mobile</div>
                     <div class="label_text"><?php echo $user_details->mobile; ?></div>
+                </div>
+                <div class="control">
+                    <div class="label">Email</div>
+                    <div class="label_text"><?php echo $user_details->email; ?></div>
                 </div>
                 <?php
                     if(!isset($_GET['review'])) {
