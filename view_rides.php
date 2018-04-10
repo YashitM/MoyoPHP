@@ -151,7 +151,7 @@ else {
                     <p class="card-text">
                         Date: <?php echo $rides[$x]->dateofride; ?>
                         <br> Time: <?php echo $rides[$x]->start_time; ?>
-                        <br> Seats Available: <?php echo $rides[$x]->seats_available; ?>
+                        <br> Seats Occupied: <?php echo $rides[$x]->seats_available; ?>
                     </p>
                     <a href="view_requests.php?ride_id=<?php echo $rides[$x]->id;?>" class="btn btn-success answer">View Requests</a>
                     <a href="#" class="btn btn-primary">Edit Ride</a>
