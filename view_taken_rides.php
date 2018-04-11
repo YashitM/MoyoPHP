@@ -180,10 +180,15 @@ else {
             </p>
             <p class="card-text">
                 By: <?php echo $users[$x]->name; ?>
-                <br> Date: <?php echo $users[$x]->dateofride; ?>
                 <br> Time: <?php echo $users[$x]->start_time; ?>
                 <br> Message: <?php echo $users[$x]->message; ?>
             </p>
+            <?php
+                  if($users[$x]->status === "1") {
+                      echo "<a href=\"view_other_profile.php?review=1&id=".$users[$x]->fb_id."\" class=\"btn btn-primary answer\">View Profile</a>";
+                  }
+            ?>
+
         </div>
     </div>
         <?php
