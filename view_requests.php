@@ -36,8 +36,7 @@ else {
             if(!$obj->{'error'}) {
                 if($fields['status'] === "1") {
                     $_SESSION['notification_message'] = "Ride Accepted";
-                    $_SESSION['other_fb_id'] = $_POST['ride_fb_id'];
-                    header("Location: view_other_profile.php");
+                    header("Location: view_other_profile.php?id=".$_POST['ride_fb_id']);
                     exit();
                 }
                 else if($fields['status'] === "2") {
