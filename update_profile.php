@@ -172,12 +172,9 @@
                         <div class="form-row">
                             <label>
                                 <span>DOB</span>
-                                <input type="text" id="id_dob" name="dob" placeholder="Date of Birth">
+                                <input type="text" id="id_dob" name="dob" placeholder="Enter your Age">
                             </label>
                         </div>
-                        <script>
-                            $('#id_dob').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
-                        </script>
                         <div class="form-row">
                             <label>
                                 <span>Mobile</span>

@@ -132,13 +132,7 @@ else {
     <a href="view_other_profile.php?review=1&id=<?php echo $rides[$x]->fb_id; ?>">
         <div class="card">
             <div class="card-header">
-                Ride By: <?php echo $rides[$x]->name; ?> (<?php
-                $dateOfBirth = $rides[$x]->dob;
-                $newDate = date("d-m-Y", strtotime($dateOfBirth));
-                $today = date("Y-m-d");
-                $diff = date_diff(date_create($newDate), date_create($today));
-                echo $diff->format('%y').", ".$rides[$x]->gender.")";
-                ?>
+                Ride By: <?php echo $rides[$x]->name; ?> (<?php echo $rides[$x]->dob.", ".$rides[$x]->gender.")"; ?>
             </div>
             <div class="card-block">
                 <div class="row">
@@ -172,6 +166,7 @@ else {
                     <br> Message: <?php echo $rides[$x]->message; ?>
                     <br> Time: <?php echo $rides[$x]->start_time; ?>
                     <br> Seats Available: <?php echo $rides[$x]->seats - $rides[$x]->seats_available; ?>
+                    <br> Seats Occupied: <?php echo $rides[$x]->seats_available; ?>
                 </p>
                 <form action="" method="post">
                     <input type="hidden" name="ride_id" value="<?php echo $rides[$x]->id; ?>">

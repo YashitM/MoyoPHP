@@ -204,7 +204,6 @@ else {
     </div>
     <?php
         for($x=0; $x<count($users); $x++) {
-            if($users[$x]->status === "0") {
                 ?>
             <a href="view_other_profile.php?review=1&id=<?php echo $users[$x]->fb_id; ?>">
                 <div class="card">
@@ -236,8 +235,7 @@ else {
                         </form>
                     </div>
                 </div>
-                <?php
-            }
+            <?php
         }
     ?>
             </a>
