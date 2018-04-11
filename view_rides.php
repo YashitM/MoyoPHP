@@ -155,7 +155,7 @@ else {
                         <br> Seats Available: <?php echo $rides[$x]->seats - $rides[$x]->seats_available; ?>
                     </p>
                     <a href="view_requests.php?ride_id=<?php echo $rides[$x]->id;?>" class="btn btn-success answer">View Requests</a>
-                    <a href="#" class="btn btn-primary">Edit Ride</a>
+                    <a href="edit_ride.php?ride_id=<?php echo $rides[$x]->id;?>" class="btn btn-primary">Edit Ride</a>
                     <a href="cancel_ride.php?cancel=true&ride_id=<?php echo $rides[$x]->id;?>" class="btn btn-danger answer">Cancel Ride</a>
                 </div>
             </div>

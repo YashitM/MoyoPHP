@@ -18,6 +18,12 @@ else {
             exit();
         }
     }
+
+    if(!isset($_GET['ride_id'])) {
+        header("Location: view_rides.php");
+        exit();
+    }
+
 }
 ?>
 
@@ -113,117 +119,110 @@ else {
 </nav>
 
 <div class="container padded-container">
-        <form class="form-login" method="post" action="#" id="offerrideform">
-            <div class="input-group">
-                <input type="hidden" name="sou_lati" id="id_sou_lati" value = "{{ selected_ride.source_latitude }}"/>
-            </div>
-
-            <div class="input-group">
-                <input type="hidden" name="sou_long" id="id_sou_long" value = "{{ selected_ride.source_longitude }}"/>
-            </div>
-
-            <div class="input-group">
-                <input type="hidden" name="des_lati" id="id_des_lati" value = "{{ selected_ride.destination_latitude }}"/>
-            </div>
-
-            <div class="input-group">
-                <input type="hidden" name="des_long" id="id_des_long" value = "{{ selected_ride.destination_longitude }}"/>
-            </div>
-            <div class="form-log-in-with-email">
-                <div class="form-white-background">
-                    <div class="form-title-row">
-                        <h1>Update Ride</h1>
-                    </div>
-                    <div class="form-row">
-                        <label>
-                            <span>Car Model</span>
-                            <input type="text" id="id_car_model" placeholder="Enter Car Model" name="car_model" value = "{{ selected_ride.car_model }}">
-                        </label>
-                    </div>
-                    <div class="form-row">
-                        <label>
-                            <span>Seats</span>
-                            <input type="text" id="id_seats" placeholder="Enter No. of Seats" name="seats" value = "{{ selected_ride.seats }}">
-                        </label>
-                    </div>
-                    <div class="form-row">
-                        <label>
-                            <span>Seats Available</span>
-                            <input type="text" id="id_seats_available" placeholder="Enter No. of Seats Available" name="seats_available" value = "{{ selected_ride.seats_available }}">
-                        </label>
-                    </div>
-                    <div class="form-row">
-                        <label>
-                            <span>Cost</span>
-                            <input type="text" id="id_cost" placeholder="Enter Cost" name="cost" value = "{{ selected_ride.cost }}">
-                        </label>
-                    </div>
-                    <div class="form-row">
-                        <label>
-                            <span>Start Time</span>
-                            <input type="time" id="id_start_time" placeholder="Enter Start Time" name="start_time" value = "{{ selected_ride.start_time }}">
-                        </label>
-                    </div>
-                    <div class="form-row">
-                        <label>
-                            <span>Date Of Ride</span>
-                            <input type="date" id="id_dateofride" name="dateofride" value = "{{ selected_ride.dateofride }}">
-                        </label>
-                    </div>
-                    <div class="form-row">
-                        <label>
-                            <span>Message</span>
-                            <textarea name="message" placeholder="Enter Message" id="id_message">{{ selected_ride.message }}</textarea>
-                        </label>
-                    </div>
-                    <div class="form-row">
-                        <label>
-                            <span>Source Location</span>
-                            <input type="text" name="source_location" maxlength="1000" required="" placeholder="Select Location Below" id="id_source_location" value = "{{ selected_ride.source }}">
-                        </label>
-                    </div>
-                    <button type="button" id="source_location_button" style="margin-top: -20px;" data-toggle="modal" data-target="#myModal">Source</button>
-                    <div class="form-row">
-                        <label>
-                            <span>Destination Location</span>
-                            <input type="text" name="destination_location" maxlength="1000" required="" placeholder="Select Location Below" id="id_destination_location" value = "{{ selected_ride.destination }}">
-                        </label>
-                    </div>
-                    <button type="button" id="destination_location_button" style="margin-top: -20px;" data-toggle="modal" data-target="#myModal">Destination</button>
-                    <div class="form-row">
-                        <button type="submit" class="btn">Update</button>
-                    </div>
+    <form class="form-login" method="post" action="#" id="offerrideform">
+        <div class="form-log-in-with-email">
+            <div class="form-white-background">
+                <div class="form-title-row">
+                    <h1>Update Ride</h1>
                 </div>
-            </div>
-        </form>
-    </div>
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h4 class="modal-title">Select Location</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="input-group">
+                    <input type="hidden" name="ride_id" id="ride_id" value="<?php echo $_GET['ride_id']; ?>"/>
                 </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="pac-card" id="pac-card">
-                        <div id="pac-container">
-                            <input id="location_input" type="text" placeholder="Enter a location">
-                        </div>
-                    </div>
-                    <div id="map"></div>
+                <div class="form-row">
+                    <label>
+                        <span>Seats</span>
+                        <input type="text" id="id_seats" placeholder="Enter No. of Seats" name="seats">
+                    </label>
                 </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div class="form-row">
+                    <label>
+                        <span>Cost</span>
+                        <input type="text" id="id_cost" placeholder="Enter Cost" name="cost" >
+                    </label>
                 </div>
-
+                <div class="form-row">
+                    <label>
+                        <span>Start Time*</span>
+                        <input type="time" id="id_start_time" placeholder="Enter Start Time" name="start_time">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Date Of Ride*</span>
+                        <input type="text" id="id_dateofride" name="dateofride">
+                    </label>
+                </div>
+                <script>
+                    $('#id_dateofride').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
+                </script>
+                <div class="form-row">
+                    <label>
+                        <span>Message</span>
+                        <textarea name="message" placeholder="Enter Message" id="id_message">Enter Message</textarea>
+                    </label>
+                </div>
+                <div class="form-row">
+                    <button type="submit" class="btn">Update</button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
+</div>
+
+<?php
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!(!isset($_POST['seats']) || trim($_POST['seats']) == '') &&
+        !(!isset($_POST['cost']) || trim($_POST['cost']) == '') &&
+        !(!isset($_POST['start_time']) || trim($_POST['start_time']) == '') &&
+        !(!isset($_POST['dateofride']) || trim($_POST['dateofride']) == '')
+    ) {
+        $date = date('Y-m-d', strtotime($_POST['dateofride']));
+        $time = $date." ".$_POST['start_time'].":00";
+        $fields = array(
+            'seats'=> $_POST['seats'],
+            'start_time'=> $time,
+            'cost'=> $_POST['cost'],
+            'ride_date' => $date,
+            'id' => $_GET['ride_id']
+        );
+
+        require_once("config.php");
+        $config = new ConfigVars();
+
+        if (isset($_POST['message'])) {
+            $fields['message'] = $_POST['message'];
+        }
+
+        $result = $config->send_post_request($fields, "updateRide");
+        $obj = json_decode($result);
+        if (!$obj->{'error'}) {
+            echo "<script>
+            $.notify({
+                message: '" . $obj->{'message'} . "',
+                type: 'success'
+            });
+        </script>";
+        } else {
+            echo "<script>
+            $.notify({
+                message: '" . $obj->{'message'} . "',
+                type: 'success'
+            });
+        </script>";
+        }
+    }
+    else {
+        echo "<script>
+            $.notify({
+                message: 'Please Complete All Fields',
+                type: 'success'
+            });
+        </script>";
+    }
+}
+?>
+
+
 <footer id="myFooter" class="footer">
     <div class="container">
         <div class="row">

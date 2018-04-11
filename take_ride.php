@@ -132,7 +132,13 @@ else {
     <a href="view_other_profile.php?review=1&id=<?php echo $rides[$x]->fb_id; ?>">
         <div class="card">
             <div class="card-header">
-                <?php echo $rides[$x]->name; ?>
+                Ride By: <?php echo $rides[$x]->name; ?> (<?php
+                $dateOfBirth = $rides[$x]->dob;
+                $newDate = date("d-m-Y", strtotime($dateOfBirth));
+                $today = date("Y-m-d");
+                $diff = date_diff(date_create($newDate), date_create($today));
+                echo $diff->format('%y').", ".$rides[$x]->gender.")";
+                ?>
             </div>
             <div class="card-block">
                 <div class="row">
@@ -142,6 +148,7 @@ else {
                                 echo '<div class="outter"><img src="//graph.facebook.com/'.$rides[$x]->fb_id.'/picture?type=large" class="image-circle"/></div>';
                             }
                         ?>
+
                     </div>
                     <div class="col-lg-8">
                         <br>
@@ -161,7 +168,8 @@ else {
                     </div>
                 </div>
                 <p class="card-text">
-                    Date: <?php echo $rides[$x]->dateofride; ?>
+                    Cost: Rs. <?php echo $rides[$x]->cost; ?>
+                    <br> Message: <?php echo $rides[$x]->message; ?>
                     <br> Time: <?php echo $rides[$x]->start_time; ?>
                     <br> Seats Available: <?php echo $rides[$x]->seats - $rides[$x]->seats_available; ?>
                 </p>
