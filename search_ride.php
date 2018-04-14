@@ -63,12 +63,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $result = $config->send_post_request($fields, "fetchriders");
                 $obj = json_decode($result);
                 if(count($obj->{'users'}) == 0) {
-                    echo "<script>
-                            $.notify({
-                                message: 'No Rides Available. Please Check Again Later',
-                                type: 'success'
-                            });
-                            </script>";
+                    $_SESSION['notification_message'] = "No Rides Available. Please Check Again Later";
                 }
                 else {
                     $_SESSION['nearby_rides'] = $obj->{'users'};
@@ -196,6 +191,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </nav>
+
+    <?php
+            echo "<script>
+                $.notify({
+                    message: '".$_SESSION['notification_message']."',
+                    type: 'success'
+                });
+                </script>";
+
+
+    ?>
 
     <div class="container padded-container">
         <form class="form-login" method="post" action="" id="offerrideform">

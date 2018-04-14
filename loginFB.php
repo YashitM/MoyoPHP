@@ -20,7 +20,7 @@ $helper = new FacebookRedirectLoginHelper('http://localhost/carz/loginFB.php');
 try {$session = $helper->getSessionFromRedirect();} catch( FacebookRequestException $ex ) {} catch( Exception $ex ) {}
 if ( isset( $session ) )
 {
-    $request = new FacebookRequest( $session, 'GET', '/me?fields=id,first_name,last_name,name,email' );
+    $request = new FacebookRequest( $session, 'GET', '/me?fields=id,first_name,last_name,name,email,birthday' );
     try {
         $response = $request->execute();
     } catch (FacebookRequestException $e) {
@@ -32,6 +32,7 @@ if ( isset( $session ) )
     $fblastname = $graphObject->getProperty('last_name');
     $fbfullname = $graphObject->getProperty('name');
     $femail = $graphObject->getProperty('email');
+    $fage = $graphObject->getProperty('birthday');
     if($femail==null || $femail=='' || $femail==' ')
     {
         $femail=$fbfirstname.$fblastname.$fbid.'@gmail.com';
@@ -41,6 +42,7 @@ if ( isset( $session ) )
     $_SESSION['first_name'] = $fbfirstname;
     $_SESSION['last_name'] = $fblastname;
     $_SESSION['email'] = $femail;
+    $_SESSION['age'] = $fage;
     $_SESSION['logincust']='yes';
     header("Location: index.php");
     exit();

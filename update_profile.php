@@ -172,7 +172,7 @@
                         <div class="form-row">
                             <label>
                                 <span>DOB</span>
-                                <input type="text" id="id_dob" name="dob" placeholder="Enter your Age">
+                                <input type="number" id="id_dob" name="dob" placeholder="Enter your Age">
                             </label>
                         </div>
                         <div class="form-row">
