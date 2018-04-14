@@ -193,14 +193,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     </nav>
 
     <?php
+        if(isset($_SESSION['notification_message'])) {
             echo "<script>
                 $.notify({
-                    message: '".$_SESSION['notification_message']."',
+                    message: '" . $_SESSION['notification_message'] . "',
                     type: 'success'
                 });
                 </script>";
-
-
+            unset($_SESSION['notification_message']);
+        }
     ?>
 
     <div class="container padded-container">
