@@ -127,20 +127,25 @@ else {
     </div>
     <br>
     <?php
-    for($x = 0; $x < count($rides); $x++) {
-        ?>
+    if(count($rides) === 0) {
+        echo "<br><br><br><br><h3>Oops! No rides available, kindly select different Route.</h3><br><br><br><br><br><br><br><br><br>";
+    }
+    else {
+    for ($x = 0; $x < count($rides); $x++) {
+    ?>
     <a href="view_other_profile.php?review=1&id=<?php echo $rides[$x]->fb_id; ?>">
         <div class="card">
             <div class="card-header">
-                Ride By: <?php echo $rides[$x]->name; ?> (<?php echo $rides[$x]->dob.", ".$rides[$x]->gender.")"; ?>
+                Ride By: <?php echo $rides[$x]->name; ?>
+                (<?php echo $rides[$x]->dob . ", " . $rides[$x]->gender . ")"; ?>
             </div>
             <div class="card-block">
                 <div class="row">
                     <div class="col-lg-4">
                         <?php
-                            if($_SESSION['oauth_provider'] === "Facebook") {
-                                echo '<div class="outter"><img src="//graph.facebook.com/'.$rides[$x]->fb_id.'/picture?type=large" class="image-circle"/></div>';
-                            }
+                        if ($_SESSION['oauth_provider'] === "Facebook") {
+                            echo '<div class="outter"><img src="//graph.facebook.com/' . $rides[$x]->fb_id . '/picture?type=large" class="image-circle"/></div>';
+                        }
                         ?>
 
                     </div>
@@ -157,7 +162,8 @@ else {
                             <br>
                             <i class="fa fa-map-marker" style="color: #b2dd4c; font-size: 25px;" aria-hidden="true"></i>&nbsp;&nbsp;
                             <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $rides[$x]->destination_latitude; ?>,<?php echo $rides[$x]->destination_longitude; ?>"
-                               target="_blank"><span class="search-location-text"><?php echo $rides[$x]->destination; ?></span></a>
+                               target="_blank"><span
+                                        class="search-location-text"><?php echo $rides[$x]->destination; ?></span></a>
                         </center>
                     </div>
                 </div>
@@ -171,12 +177,14 @@ else {
                 <form action="" method="post">
                     <input type="hidden" name="ride_id" value="<?php echo $rides[$x]->id; ?>">
                     <input type="text" id="message" name="message" placeholder="Enter Message (Optional)"><br><br>
-                    <input type="checkbox" name="conditions" value="">&nbsp;&nbsp;I agree to the <a href="">Terms of Service</a><br>
+                    <input type="checkbox" name="conditions" value="">&nbsp;&nbsp;I agree to the <a href="">Terms of
+                        Service</a><br>
                     <button type="submit" class="btn btn-primary answer">Take Ride</button>
                 </form>
             </div>
         </div>
         <?php
+        }
     }
     ?>
     </a>

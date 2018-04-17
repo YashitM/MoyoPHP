@@ -62,15 +62,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             if($have_api_key === 1) {
                 $result = $config->send_post_request($fields, "fetchriders");
                 $obj = json_decode($result);
-                if(count($obj->{'users'}) == 0) {
-                    $_SESSION['notification_message'] = "No Rides Available. Please Check Again Later";
-                }
-                else {
-                    $_SESSION['nearby_rides'] = $obj->{'users'};
-                    header("Location: take_ride.php");
-                    exit();
-
-                }
+                $_SESSION['nearby_rides'] = $obj->{'users'};
+                header("Location: take_ride.php");
+                exit();
             }
             else {
                 echo "<script>

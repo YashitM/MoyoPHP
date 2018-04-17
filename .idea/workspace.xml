@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c69dca30-9e29-4fb3-9e05-574384eee6e7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/offer_rides.php" afterPath="$PROJECT_DIR$/offer_rides.php" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/search_ride.php" afterPath="$PROJECT_DIR$/search_ride.php" />
-      <change beforePath="$PROJECT_DIR$/static/js/maps.js" afterPath="$PROJECT_DIR$/static/js/maps.js" />
+      <change beforePath="$PROJECT_DIR$/take_ride.php" afterPath="$PROJECT_DIR$/take_ride.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,23 +15,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="take_ride.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="take_ride.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/take_ride.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="173" column="59" lean-forward="false" selection-start-line="173" selection-start-column="49" selection-end-line="173" selection-end-column="59" />
+            <state relative-caret-position="580">
+              <caret line="142" column="33" lean-forward="true" selection-start-line="142" selection-start-column="33" selection-end-line="142" selection-end-column="33" />
               <folding>
-                <marker date="1523784231087" expanded="true" signature="10259:10406" ph="..." />
-                <marker date="1523784231087" expanded="true" signature="10282:10308" ph="{...}" />
-                <marker date="1523784231087" expanded="true" signature="10282:10383" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
-                <marker date="1523784231087" expanded="true" signature="10472:10638" ph="..." />
-                <marker date="1523784231087" expanded="true" signature="10495:10615" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-                <marker date="1523784231087" expanded="true" signature="10706:10874" ph="..." />
-                <marker date="1523784231087" expanded="true" signature="10733:10851" ph="{&quot;message&quot;: 'Agree to the'...}" />
-                <marker date="1523784231087" expanded="true" signature="10926:11108" ph="..." />
-                <marker date="1523784231087" expanded="true" signature="10953:11085" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-                <marker date="1523784231087" expanded="true" signature="14905:15151" ph="..." />
-                <marker date="1523784231087" expanded="true" signature="14944:15112" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
+                <marker date="1524007217484" expanded="true" signature="10526:10673" ph="..." />
+                <marker date="1524007217484" expanded="true" signature="10549:10575" ph="{...}" />
+                <marker date="1524007217484" expanded="true" signature="10549:10650" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+                <marker date="1524007217484" expanded="true" signature="10739:10905" ph="..." />
+                <marker date="1524007217484" expanded="true" signature="10762:10882" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+                <marker date="1524007217484" expanded="true" signature="10973:11141" ph="..." />
+                <marker date="1524007217484" expanded="true" signature="11000:11118" ph="{&quot;message&quot;: 'Agree to the'...}" />
+                <marker date="1524007217484" expanded="true" signature="11193:11375" ph="..." />
+                <marker date="1524007217484" expanded="true" signature="11220:11352" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+                <marker date="1524007217484" expanded="true" signature="15172:15418" ph="..." />
+                <marker date="1524007217484" expanded="true" signature="15211:15379" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
               </folding>
             </state>
           </provider>
@@ -60,23 +60,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search_ride.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="search_ride.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search_ride.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="248" column="158" lean-forward="false" selection-start-line="248" selection-start-column="150" selection-end-line="248" selection-end-column="158" />
+            <state relative-caret-position="380">
+              <caret line="64" column="58" lean-forward="true" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
               <folding>
-                <marker date="1524006946579" expanded="true" signature="2855:3041" ph="..." />
-                <marker date="1524006946579" expanded="true" signature="2882:3014" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-                <marker date="1524006946579" expanded="true" signature="3110:3274" ph="..." />
-                <marker date="1524006946579" expanded="true" signature="3137:3251" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
-                <marker date="1524006946579" expanded="true" signature="3326:3508" ph="..." />
-                <marker date="1524006946579" expanded="true" signature="3353:3485" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-                <marker date="1524006946579" expanded="true" signature="8508:8691" ph="..." />
-                <marker date="1524006946579" expanded="true" signature="8535:8664" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
-                <marker date="1524006946579" expanded="false" signature="11164:11182" ph="..." />
-                <marker date="1524006946579" expanded="true" signature="16547:16793" ph="..." />
-                <marker date="1524006946579" expanded="true" signature="16586:16754" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
+                <marker date="1524007050059" expanded="true" signature="2629:2815" ph="..." />
+                <marker date="1524007050059" expanded="true" signature="2656:2788" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+                <marker date="1524007050059" expanded="true" signature="2884:3048" ph="..." />
+                <marker date="1524007050059" expanded="true" signature="2911:3025" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
+                <marker date="1524007050059" expanded="true" signature="3100:3282" ph="..." />
+                <marker date="1524007050059" expanded="true" signature="3127:3259" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+                <marker date="1524007050059" expanded="true" signature="8282:8465" ph="..." />
+                <marker date="1524007050059" expanded="true" signature="8309:8438" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+                <marker date="1524007050059" expanded="false" signature="10938:10956" ph="..." />
+                <marker date="1524007050059" expanded="true" signature="16321:16567" ph="..." />
+                <marker date="1524007050059" expanded="true" signature="16360:16528" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
               </folding>
             </state>
           </provider>
@@ -215,7 +215,6 @@
         <option value="$PROJECT_DIR$/view_requests.php" />
         <option value="$PROJECT_DIR$/update_profile.php" />
         <option value="$PROJECT_DIR$/view_profile.php" />
-        <option value="$PROJECT_DIR$/take_ride.php" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/loginFB.php" />
@@ -223,6 +222,7 @@
         <option value="$PROJECT_DIR$/static/js/maps.js" />
         <option value="$PROJECT_DIR$/offer_rides.php" />
         <option value="$PROJECT_DIR$/search_ride.php" />
+        <option value="$PROJECT_DIR$/take_ride.php" />
       </list>
     </option>
   </component>
@@ -371,12 +371,12 @@
       <workItem from="1523426573901" duration="5638000" />
       <workItem from="1523687500070" duration="2821000" />
       <workItem from="1523784040776" duration="1458000" />
-      <workItem from="1524005279106" duration="1670000" />
+      <workItem from="1524005279106" duration="1941000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186310000" />
+    <option name="totallyTimeSpent" value="186581000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -708,26 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/take_ride.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="173" column="59" lean-forward="false" selection-start-line="173" selection-start-column="49" selection-end-line="173" selection-end-column="59" />
-          <folding>
-            <marker date="1523784231087" expanded="true" signature="10259:10406" ph="..." />
-            <marker date="1523784231087" expanded="true" signature="10282:10308" ph="{...}" />
-            <marker date="1523784231087" expanded="true" signature="10282:10383" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
-            <marker date="1523784231087" expanded="true" signature="10472:10638" ph="..." />
-            <marker date="1523784231087" expanded="true" signature="10495:10615" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-            <marker date="1523784231087" expanded="true" signature="10706:10874" ph="..." />
-            <marker date="1523784231087" expanded="true" signature="10733:10851" ph="{&quot;message&quot;: 'Agree to the'...}" />
-            <marker date="1523784231087" expanded="true" signature="10926:11108" ph="..." />
-            <marker date="1523784231087" expanded="true" signature="10953:11085" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-            <marker date="1523784231087" expanded="true" signature="14905:15151" ph="..." />
-            <marker date="1523784231087" expanded="true" signature="14944:15112" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/maps.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -759,20 +739,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/search_ride.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="248" column="158" lean-forward="false" selection-start-line="248" selection-start-column="150" selection-end-line="248" selection-end-column="158" />
+        <state relative-caret-position="380">
+          <caret line="64" column="58" lean-forward="true" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
           <folding>
-            <marker date="1524006946579" expanded="true" signature="2855:3041" ph="..." />
-            <marker date="1524006946579" expanded="true" signature="2882:3014" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-            <marker date="1524006946579" expanded="true" signature="3110:3274" ph="..." />
-            <marker date="1524006946579" expanded="true" signature="3137:3251" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
-            <marker date="1524006946579" expanded="true" signature="3326:3508" ph="..." />
-            <marker date="1524006946579" expanded="true" signature="3353:3485" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-            <marker date="1524006946579" expanded="true" signature="8508:8691" ph="..." />
-            <marker date="1524006946579" expanded="true" signature="8535:8664" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
-            <marker date="1524006946579" expanded="false" signature="11164:11182" ph="..." />
-            <marker date="1524006946579" expanded="true" signature="16547:16793" ph="..." />
-            <marker date="1524006946579" expanded="true" signature="16586:16754" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
+            <marker date="1524007050059" expanded="true" signature="2629:2815" ph="..." />
+            <marker date="1524007050059" expanded="true" signature="2656:2788" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+            <marker date="1524007050059" expanded="true" signature="2884:3048" ph="..." />
+            <marker date="1524007050059" expanded="true" signature="2911:3025" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
+            <marker date="1524007050059" expanded="true" signature="3100:3282" ph="..." />
+            <marker date="1524007050059" expanded="true" signature="3127:3259" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+            <marker date="1524007050059" expanded="true" signature="8282:8465" ph="..." />
+            <marker date="1524007050059" expanded="true" signature="8309:8438" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+            <marker date="1524007050059" expanded="false" signature="10938:10956" ph="..." />
+            <marker date="1524007050059" expanded="true" signature="16321:16567" ph="..." />
+            <marker date="1524007050059" expanded="true" signature="16360:16528" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/take_ride.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="142" column="33" lean-forward="true" selection-start-line="142" selection-start-column="33" selection-end-line="142" selection-end-column="33" />
+          <folding>
+            <marker date="1524007217484" expanded="true" signature="10526:10673" ph="..." />
+            <marker date="1524007217484" expanded="true" signature="10549:10575" ph="{...}" />
+            <marker date="1524007217484" expanded="true" signature="10549:10650" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+            <marker date="1524007217484" expanded="true" signature="10739:10905" ph="..." />
+            <marker date="1524007217484" expanded="true" signature="10762:10882" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+            <marker date="1524007217484" expanded="true" signature="10973:11141" ph="..." />
+            <marker date="1524007217484" expanded="true" signature="11000:11118" ph="{&quot;message&quot;: 'Agree to the'...}" />
+            <marker date="1524007217484" expanded="true" signature="11193:11375" ph="..." />
+            <marker date="1524007217484" expanded="true" signature="11220:11352" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+            <marker date="1524007217484" expanded="true" signature="15172:15418" ph="..." />
+            <marker date="1524007217484" expanded="true" signature="15211:15379" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
           </folding>
         </state>
       </provider>
