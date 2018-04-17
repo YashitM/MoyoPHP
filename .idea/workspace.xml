@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c69dca30-9e29-4fb3-9e05-574384eee6e7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
-      <change beforePath="$PROJECT_DIR$/loginFB.php" afterPath="$PROJECT_DIR$/loginFB.php" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" afterPath="$PROJECT_DIR$/static/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/view_profile.php" afterPath="$PROJECT_DIR$/view_profile.php" />
+      <change beforePath="$PROJECT_DIR$/offer_rides.php" afterPath="$PROJECT_DIR$/offer_rides.php" />
+      <change beforePath="$PROJECT_DIR$/search_ride.php" afterPath="$PROJECT_DIR$/search_ride.php" />
+      <change beforePath="$PROJECT_DIR$/static/js/maps.js" afterPath="$PROJECT_DIR$/static/js/maps.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +18,8 @@
       <file leaf-file-name="take_ride.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/take_ride.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7320">
-              <caret line="366" column="34" lean-forward="false" selection-start-line="366" selection-start-column="34" selection-end-line="366" selection-end-column="34" />
+            <state relative-caret-position="1020">
+              <caret line="173" column="59" lean-forward="false" selection-start-line="173" selection-start-column="49" selection-end-line="173" selection-end-column="59" />
               <folding>
                 <marker date="1523784231087" expanded="true" signature="10259:10406" ph="..." />
                 <marker date="1523784231087" expanded="true" signature="10282:10308" ph="{...}" />
@@ -40,18 +37,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search_ride.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="offer_rides.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/offer_rides.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="159" column="54" lean-forward="true" selection-start-line="159" selection-start-column="54" selection-end-line="159" selection-end-column="54" />
+              <folding>
+                <marker date="1524006935404" expanded="true" signature="13118:13301" ph="..." />
+                <marker date="1524006935404" expanded="true" signature="13149:13274" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+                <marker date="1524006935404" expanded="true" signature="13363:13546" ph="..." />
+                <marker date="1524006935404" expanded="true" signature="13394:13519" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+                <marker date="1524006935404" expanded="true" signature="13630:13816" ph="..." />
+                <marker date="1524006935404" expanded="true" signature="13657:13789" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+                <marker date="1524006935404" expanded="true" signature="13885:14049" ph="..." />
+                <marker date="1524006935404" expanded="true" signature="13912:14026" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
+                <marker date="1524006935404" expanded="true" signature="14101:14283" ph="..." />
+                <marker date="1524006935404" expanded="true" signature="14128:14260" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+                <marker date="1524006935404" expanded="true" signature="18372:18618" ph="..." />
+                <marker date="1524006935404" expanded="true" signature="18411:18579" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search_ride.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/search_ride.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4000">
-              <caret line="200" column="19" lean-forward="false" selection-start-line="200" selection-start-column="19" selection-end-line="200" selection-end-column="19" />
+            <state relative-caret-position="440">
+              <caret line="248" column="158" lean-forward="false" selection-start-line="248" selection-start-column="150" selection-end-line="248" selection-end-column="158" />
               <folding>
-                <marker date="1523706075901" expanded="true" signature="2855:3041" ph="..." />
-                <marker date="1523706075901" expanded="true" signature="2882:3014" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-                <marker date="1523706075901" expanded="true" signature="3110:3274" ph="..." />
-                <marker date="1523706075901" expanded="true" signature="3137:3251" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
-                <marker date="1523706075901" expanded="true" signature="3326:3508" ph="..." />
-                <marker date="1523706075901" expanded="true" signature="3353:3485" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+                <marker date="1524006946579" expanded="true" signature="2855:3041" ph="..." />
+                <marker date="1524006946579" expanded="true" signature="2882:3014" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+                <marker date="1524006946579" expanded="true" signature="3110:3274" ph="..." />
+                <marker date="1524006946579" expanded="true" signature="3137:3251" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
+                <marker date="1524006946579" expanded="true" signature="3326:3508" ph="..." />
+                <marker date="1524006946579" expanded="true" signature="3353:3485" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+                <marker date="1524006946579" expanded="true" signature="8508:8691" ph="..." />
+                <marker date="1524006946579" expanded="true" signature="8535:8664" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+                <marker date="1524006946579" expanded="false" signature="11164:11182" ph="..." />
+                <marker date="1524006946579" expanded="true" signature="16547:16793" ph="..." />
+                <marker date="1524006946579" expanded="true" signature="16586:16754" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
               </folding>
             </state>
           </provider>
@@ -80,18 +105,8 @@
       <file leaf-file-name="maps.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/maps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="76" lean-forward="false" selection-start-line="12" selection-start-column="76" selection-end-line="12" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="scrollreveal.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/scrollreveal.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="322">
+              <caret line="102" column="46" lean-forward="false" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -122,12 +137,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="95" column="69" lean-forward="false" selection-start-line="95" selection-start-column="69" selection-end-line="95" selection-end-column="69" />
-              <folding />
+            <state relative-caret-position="440">
+              <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -191,21 +208,21 @@
         <option value="$PROJECT_DIR$/static/js/firebase-messaging-sw.js" />
         <option value="$PROJECT_DIR$/config.php" />
         <option value="$PROJECT_DIR$/contact_us.php" />
-        <option value="$PROJECT_DIR$/offer_rides.php" />
-        <option value="$PROJECT_DIR$/static/js/maps.js" />
         <option value="$PROJECT_DIR$/view_other_profile.php" />
         <option value="$PROJECT_DIR$/view_rides.php" />
         <option value="$PROJECT_DIR$/edit_ride.php" />
         <option value="$PROJECT_DIR$/view_taken_rides.php" />
         <option value="$PROJECT_DIR$/view_requests.php" />
         <option value="$PROJECT_DIR$/update_profile.php" />
-        <option value="$PROJECT_DIR$/search_ride.php" />
         <option value="$PROJECT_DIR$/view_profile.php" />
         <option value="$PROJECT_DIR$/take_ride.php" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/loginFB.php" />
         <option value="$PROJECT_DIR$/login.php" />
+        <option value="$PROJECT_DIR$/static/js/maps.js" />
+        <option value="$PROJECT_DIR$/offer_rides.php" />
+        <option value="$PROJECT_DIR$/search_ride.php" />
       </list>
     </option>
   </component>
@@ -217,7 +234,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="-17" />
     <option name="y" value="-8" />
     <option name="width" value="1616" />
     <option name="height" value="876" />
@@ -354,12 +371,12 @@
       <workItem from="1523426573901" duration="5638000" />
       <workItem from="1523687500070" duration="2821000" />
       <workItem from="1523784040776" duration="1458000" />
-      <workItem from="1524005279106" duration="980000" />
+      <workItem from="1524005279106" duration="1670000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185620000" />
+    <option name="totallyTimeSpent" value="186310000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -499,6 +516,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -506,6 +524,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -545,13 +564,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="85" column="24" lean-forward="false" selection-start-line="85" selection-start-column="24" selection-end-line="87" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/offer_rides.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1280">
-          <caret line="343" column="24" lean-forward="false" selection-start-line="343" selection-start-column="20" selection-end-line="343" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -599,6 +611,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4000">
           <caret line="200" column="49" lean-forward="false" selection-start-line="200" selection-start-column="49" selection-end-line="200" selection-end-column="49" />
+          <folding>
+            <marker date="1523427246329" expanded="true" signature="11797:12043" ph="..." />
+            <marker date="1523427246329" expanded="true" signature="11836:12004" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -629,14 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/maps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="76" lean-forward="false" selection-start-line="12" selection-start-column="76" selection-end-line="12" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/scrollreveal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -658,41 +666,6 @@
         <state relative-caret-position="240">
           <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search_ride.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4000">
-          <caret line="200" column="19" lean-forward="false" selection-start-line="200" selection-start-column="19" selection-end-line="200" selection-end-column="19" />
-          <folding>
-            <marker date="1523706075901" expanded="true" signature="2855:3041" ph="..." />
-            <marker date="1523706075901" expanded="true" signature="2882:3014" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-            <marker date="1523706075901" expanded="true" signature="3110:3274" ph="..." />
-            <marker date="1523706075901" expanded="true" signature="3137:3251" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
-            <marker date="1523706075901" expanded="true" signature="3326:3508" ph="..." />
-            <marker date="1523706075901" expanded="true" signature="3353:3485" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/take_ride.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7320">
-          <caret line="366" column="34" lean-forward="false" selection-start-line="366" selection-start-column="34" selection-end-line="366" selection-end-column="34" />
-          <folding>
-            <marker date="1523784231087" expanded="true" signature="10259:10406" ph="..." />
-            <marker date="1523784231087" expanded="true" signature="10282:10308" ph="{...}" />
-            <marker date="1523784231087" expanded="true" signature="10282:10383" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
-            <marker date="1523784231087" expanded="true" signature="10472:10638" ph="..." />
-            <marker date="1523784231087" expanded="true" signature="10495:10615" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-            <marker date="1523784231087" expanded="true" signature="10706:10874" ph="..." />
-            <marker date="1523784231087" expanded="true" signature="10733:10851" ph="{&quot;message&quot;: 'Agree to the'...}" />
-            <marker date="1523784231087" expanded="true" signature="10926:11108" ph="..." />
-            <marker date="1523784231087" expanded="true" signature="10953:11085" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
-            <marker date="1523784231087" expanded="true" signature="14905:15151" ph="..." />
-            <marker date="1523784231087" expanded="true" signature="14944:15112" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -727,9 +700,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="95" column="69" lean-forward="false" selection-start-line="95" selection-start-column="69" selection-end-line="95" selection-end-column="69" />
+        <state relative-caret-position="440">
+          <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/take_ride.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="173" column="59" lean-forward="false" selection-start-line="173" selection-start-column="49" selection-end-line="173" selection-end-column="59" />
+          <folding>
+            <marker date="1523784231087" expanded="true" signature="10259:10406" ph="..." />
+            <marker date="1523784231087" expanded="true" signature="10282:10308" ph="{...}" />
+            <marker date="1523784231087" expanded="true" signature="10282:10383" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+            <marker date="1523784231087" expanded="true" signature="10472:10638" ph="..." />
+            <marker date="1523784231087" expanded="true" signature="10495:10615" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+            <marker date="1523784231087" expanded="true" signature="10706:10874" ph="..." />
+            <marker date="1523784231087" expanded="true" signature="10733:10851" ph="{&quot;message&quot;: 'Agree to the'...}" />
+            <marker date="1523784231087" expanded="true" signature="10926:11108" ph="..." />
+            <marker date="1523784231087" expanded="true" signature="10953:11085" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+            <marker date="1523784231087" expanded="true" signature="14905:15151" ph="..." />
+            <marker date="1523784231087" expanded="true" signature="14944:15112" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/maps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="102" column="46" lean-forward="false" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="46" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/offer_rides.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="159" column="54" lean-forward="true" selection-start-line="159" selection-start-column="54" selection-end-line="159" selection-end-column="54" />
+          <folding>
+            <marker date="1524006935404" expanded="true" signature="13118:13301" ph="..." />
+            <marker date="1524006935404" expanded="true" signature="13149:13274" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+            <marker date="1524006935404" expanded="true" signature="13363:13546" ph="..." />
+            <marker date="1524006935404" expanded="true" signature="13394:13519" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+            <marker date="1524006935404" expanded="true" signature="13630:13816" ph="..." />
+            <marker date="1524006935404" expanded="true" signature="13657:13789" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+            <marker date="1524006935404" expanded="true" signature="13885:14049" ph="..." />
+            <marker date="1524006935404" expanded="true" signature="13912:14026" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
+            <marker date="1524006935404" expanded="true" signature="14101:14283" ph="..." />
+            <marker date="1524006935404" expanded="true" signature="14128:14260" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+            <marker date="1524006935404" expanded="true" signature="18372:18618" ph="..." />
+            <marker date="1524006935404" expanded="true" signature="18411:18579" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search_ride.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="248" column="158" lean-forward="false" selection-start-line="248" selection-start-column="150" selection-end-line="248" selection-end-column="158" />
+          <folding>
+            <marker date="1524006946579" expanded="true" signature="2855:3041" ph="..." />
+            <marker date="1524006946579" expanded="true" signature="2882:3014" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+            <marker date="1524006946579" expanded="true" signature="3110:3274" ph="..." />
+            <marker date="1524006946579" expanded="true" signature="3137:3251" ph="{&quot;message&quot;: 'Please Complete All Fields'...}" />
+            <marker date="1524006946579" expanded="true" signature="3326:3508" ph="..." />
+            <marker date="1524006946579" expanded="true" signature="3353:3485" ph="{&quot;message&quot;: 'Some error occurred. Please try again later.'...}" />
+            <marker date="1524006946579" expanded="true" signature="8508:8691" ph="..." />
+            <marker date="1524006946579" expanded="true" signature="8535:8664" ph="{&quot;message&quot;: 'EXTERNAL_FRAGMENT'...}" />
+            <marker date="1524006946579" expanded="false" signature="11164:11182" ph="..." />
+            <marker date="1524006946579" expanded="true" signature="16547:16793" ph="..." />
+            <marker date="1524006946579" expanded="true" signature="16586:16754" ph="{&quot;message&quot;: 'Some error occurred. Please Refresh The Page'...}" />
+          </folding>
         </state>
       </provider>
     </entry>

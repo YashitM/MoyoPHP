@@ -100,14 +100,14 @@ if (window.location.href.indexOf("search_ride") !== -1 || window.location.href.i
 
     $('#myModal').on('hidden.bs.modal', function (e) {
         var text = document.getElementById("location_input").value;
-        if (clicked_by === "source_location_button") {
+        if (clicked_by === "id_source_location") {
             document.getElementById('id_source_location').value = selectedLocation;
             // console.log(currentLongitude)
             // console.log(currentLatitude)
             document.getElementById('id_sou_lati').value = currentLatitude;
             document.getElementById('id_sou_long').value = currentLongitude;
         }
-        else if(clicked_by === "destination_location_button") {
+        else if(clicked_by === "id_destination_location") {
             document.getElementById('id_destination_location').value = selectedLocation;
             // console.log(currentLongitude)
             // console.log(currentLatitude)
@@ -124,14 +124,14 @@ if (window.location.href.indexOf("search_ride") !== -1 || window.location.href.i
 
     $('#myModal2').on('hidden.bs.modal', function (e) {
         var text = document.getElementById("location_input").value;
-        if (clicked_by === "source_location_button_take_ride") {
+        if (clicked_by === "id_source_location") {
             document.getElementById('id_source_location').value = selectedLocation;
             // console.log(currentLongitude)
             // console.log(currentLatitude)
             document.getElementById('id_sou_lati').value = currentLatitude;
             document.getElementById('id_sou_long').value = currentLongitude;
         }
-        else if(clicked_by === "destination_location_button_take_ride") {
+        else if(clicked_by === "id_destination_location") {
             document.getElementById('id_destination_location').value = selectedLocation;
             // console.log(currentLongitude)
             // console.log(currentLatitude)

@@ -143,12 +143,6 @@ else {
                             <input type="number" id="id_seats" placeholder="Enter No. of Seats" name="seats" max="8">
                         </label>
                     </div>
-<!--                    <div class="form-row">-->
-<!--                        <label>-->
-<!--                            <span>Seats Available</span>-->
-<!--                            <input type="text" id="id_seats_available" placeholder="Enter No. of Seats Available" name="seats_available">-->
-<!--                        </label>-->
-<!--                    </div>-->
                     <div class="form-row">
                         <label>
                             <span>Cost*</span>
@@ -179,17 +173,15 @@ else {
                     <div class="form-row">
                         <label>
                             <span>Source Location*</span>
-                            <input type="text" name="source_location" maxlength="1000" required="" placeholder="Select Location Below" id="id_source_location">
+                            <input type="text" name="source_location" maxlength="1000" required="" placeholder="Select Source" id="id_source_location" data-toggle="modal" data-target="#myModal">
                         </label>
                     </div>
-                    <button type="button" id="source_location_button" style="margin-top: -20px;" data-toggle="modal" data-target="#myModal">Source</button>
                     <div class="form-row">
                         <label>
                             <span>Destination Location*</span>
-                            <input type="text" name="destination_location" maxlength="1000" required="" placeholder="Select Location Below" id="id_destination_location">
+                            <input type="text" name="destination_location" maxlength="1000" required="" placeholder="Select Destination" id="id_destination_location" data-toggle="modal" data-target="#myModal">
                         </label>
                     </div>
-                    <button type="button" id="destination_location_button" style="margin-top: -20px;" data-toggle="modal" data-target="#myModal">Destination</button>
                     <div class="form-row">
                         <button type="submit" class="btn">Submit</button>
                     </div>

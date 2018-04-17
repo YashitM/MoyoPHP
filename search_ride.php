@@ -236,17 +236,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="form-row">
                         <label>
                             <span>Source Location*</span>
-                            <input type="text" name="source_location" maxlength="1000" required="" placeholder="Select Location Below" id="id_source_location">
+                            <input type="text" name="source_location" maxlength="1000" required="" placeholder="Select Source" id="id_source_location" data-toggle="modal" data-target="#myModal2">
                         </label>
                     </div>
-                    <button type="button" id="source_location_button_take_ride" style="margin-top: -20px;" data-toggle="modal" data-target="#myModal2">Source</button>
+<!--                    <button type="button" id="source_location_button_take_ride" style="margin-top: -20px;" data-toggle="modal" data-target="#myModal2">Source</button>-->
                     <div class="form-row">
                         <label>
                             <span>Destination Location*</span>
-                            <input type="text" name="destination_location" maxlength="1000" required="" placeholder="Select Location Below" id="id_destination_location">
+                            <input type="text" name="destination_location" maxlength="1000" required="" placeholder="Select Destination" id="id_destination_location" data-toggle="modal" data-target="#myModal2">
                         </label>
                     </div>
-                    <button type="button" id="destination_location_button_take_ride" style="margin-top: -20px;" data-toggle="modal" data-target="#myModal2">Destination</button>
+<!--                    <button type="button" id="destination_location_button_take_ride" style="margin-top: -20px;" data-toggle="modal" data-target="#myModal2">Destination</button>-->
                     <div class="form-row">
                         <button type="submit" class="btn">Submit</button>
                     </div>
