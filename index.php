@@ -1,24 +1,5 @@
 <?php
     session_start();
-//    include_once 'loginG.php';
-//    if(isset($_GET['code'])){
-//        $gClient->authenticate($_GET['code']);
-//        $_SESSION['token'] = $gClient->getAccessToken();
-//        header('Location: ' . filter_var($redirectURL, FILTER_SANITIZE_URL));
-//    }
-//    if (isset($_SESSION['token'])) {
-//        $gClient->setAccessToken($_SESSION['token']);
-//    }
-//    if ($gClient->getAccessToken())
-//    {
-//        $gpUserProfile = $google_oauthV2->userinfo->get();
-//        $_SESSION['oauth_provider'] = 'Google';
-//        $_SESSION['oauth_uid'] = $gpUserProfile['id'];
-//        $_SESSION['first_name'] = $gpUserProfile['given_name'];
-//        $_SESSION['last_name'] = $gpUserProfile['family_name'];
-//        $_SESSION['email'] = $gpUserProfile['email'];
-//        $_SESSION['logincust']='yes';
-//    }
     if(isset($_SESSION['notification_message'])) {
         echo "<script>
         $.notify({
@@ -135,7 +116,6 @@
                     <br>
                     <br>
                     <h2 style="font-weight: 700;">About Us</h2>
-                    <?php echo $_SESSION['age']; ?>
                     <p class="lead sub-heading">Are you travelling alone? Do you want to TAKE or OFFER Ride?</p>
                     <p>Carz Ride On App simplifies your travel. You can offer ride and can take ride so that you can save your money and fuel for an Eco Friendly Environment! We provide Intra and Inter-city rides. Offer or Take rides from your source to destination of your journey.</p>
                 </div>

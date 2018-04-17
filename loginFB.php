@@ -42,7 +42,6 @@ if ( isset( $session ) )
     $_SESSION['first_name'] = $fbfirstname;
     $_SESSION['last_name'] = $fblastname;
     $_SESSION['email'] = $femail;
-    $_SESSION['age'] = $fage;
     $_SESSION['logincust']='yes';
     header("Location: index.php");
     exit();
